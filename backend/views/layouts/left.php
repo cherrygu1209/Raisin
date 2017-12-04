@@ -8,9 +8,9 @@
                 <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
             </div>
             <div class="pull-left info">
-                <p>Administrator</p>
+                <p align="center">Administrator</p>
 
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </i> Position</a>
             </div>
         </div>
 
@@ -30,34 +30,18 @@
             [
                 'options' => ['class' => 'sidebar-menu tree', 'data-widget'=> 'tree'],
                 'items' => [
-                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    ['label' => 'Menu', 'options' => ['class' => 'header']],
+                    ['label' => 'Profile', 'icon' => 'user-circle', 'url' => ['/site/index']],
+                    ['label' => 'User Management', 'icon' => 'gavel', 'url' => ['/user-backend/index']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
-                        'label' => 'Same tools',
-                        'icon' => 'share',
+                        'label' => 'Campaigns',
+                        'icon' => 'rocket',
                         'url' => '#',
                         'items' => [
-                            ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
-                            ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
+                            ['label' => 'Campaign Applying', 'icon' => 'inbox', 'url' => '#',],
+                            ['label' => 'Campaign Approved', 'icon' => 'check', 'url' => '#',],
+                            ['label' => 'Campaign Declined', 'icon' => 'times', 'url' => '#',],
                         ],
                     ],
                 ],
