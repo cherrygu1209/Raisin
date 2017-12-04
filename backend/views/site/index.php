@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 /* @var $content string */
-$this->title = '';
+$this->title = 'Raisin Backend';
 ?>
 
 <div class="site-index">
