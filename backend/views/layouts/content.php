@@ -43,4 +43,4 @@ use dmstr\widgets\Alert;
     reserved.
 </footer> -->
 <!-- Add the sidebar's background. This div must be placed
-     immediately after the control sidebar -->
+     immediately after the control sidebar-->

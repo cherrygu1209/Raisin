@@ -83,14 +83,25 @@ return [
             ],
         ],
 
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
+            //whether to show the 'index.php'
             'showScriptName' => false,
+            'enableStrictParsing' => false,
+            'suffix' => '',
             'rules' => [
+                '/category' => '/category/index',
+                '/campaign' => '/campaign/index',
+                '/usermanagement' => '/user-backend/index',
+                '/menu' => '/admin/menu/index',
+                "<controller:\w+>/<action:\w+>"=>"<controller>/<action>",
+                /*'<controller:\w+>/<id:\d+>' => '<controller>/view',*/
+                '/admin/menu/<id:\d+>' => '/admin/menu/view',
+
             ],
         ],
-        */
+
     ],
 
     //for theme dynamic switch
