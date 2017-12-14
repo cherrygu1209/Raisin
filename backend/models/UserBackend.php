@@ -15,6 +15,7 @@ use yii\web\IdentityInterface;
  * @property string $email
  * @property string $mobile
  * @property string $position
+ * @property string $image
  */
 class UserBackend extends \yii\db\ActiveRecord implements IdentityInterface
 {

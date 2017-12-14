@@ -12,7 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="category-index">
 
-    <hr style=" height:1px;border:none;border-top:1px solid #185598;" />
     <p>
         <?/*= Html::a('Create Category', ['create'], ['class' => 'btn btn-success']) */?>
         <h3 style="color: black">Create</h3>
@@ -36,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h3 style="color: black">Category List</h3>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'options' => ['id' => 'category'],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],

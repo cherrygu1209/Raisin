@@ -14,9 +14,6 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
-        'fieldConfig'=>[
-            'template'=> "{label}\n<div class=\"col-sm-4\">{input}</div>\n{error}",
-        ]
     ]); ?>
 
     <?= $form->field($model, 'name') ?>
