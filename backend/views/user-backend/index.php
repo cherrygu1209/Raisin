@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\UserBackendSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'User Backends';
+$this->title = 'User Management';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-backend-index">
@@ -28,8 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
             /*'auth_key',
             'password_hash',*/
             'email:email',
-            // 'created_at',
-            // 'updated_at',
+            'mobile',
+            'position',
+            'phone',
+            'image',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

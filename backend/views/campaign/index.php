@@ -9,6 +9,7 @@ use yii\helpers\Url;
 /* @var $searchModel backend\models\CampaignSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+backend\assets\TestAsset::register($this);
 $this->title = 'Campaigns';
 $this->params['breadcrumbs'][] = $this->title;
 ?>

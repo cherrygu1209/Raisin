@@ -20,8 +20,8 @@ class SignupForm extends Model
     public $email;
     public $password;
     public $confirmPass;
-    public $created_at;
-    public $updated_at;
+    /*public $created_at;
+    public $updated_at;*/
 
     /*
      * Rules for validate input
@@ -46,7 +46,7 @@ class SignupForm extends Model
             ['confirmPass','required','message' => 'You need to confirm the password'],
             ['confirmPass','compare','compareAttribute' => 'password','message' => 'Confirm Password incorrect'],
 
-            [['created_at','updated_at'],'default','value' => date('Y-m-d H:m:s')],
+            /*[['created_at','updated_at'],'default','value' => date('Y-m-d H:m:s')],*/
         ];
     }
 
@@ -64,8 +64,8 @@ class SignupForm extends Model
         $user = new UserBackend();
         $user->username = $this->username;
         $user->email = $this->email;
-        $user->created_at = $this->created_at;
-        $user->updated_at = $this->updated_at;
+        //$user->created_at = $this->created_at;
+        //$user->updated_at = $this->updated_at;
 
         $user->setPassword($this->password);
         $user->generateAuthKey();

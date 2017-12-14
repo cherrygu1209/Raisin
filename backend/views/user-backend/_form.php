@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 
 <div class="user-backend-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
@@ -20,12 +20,27 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+    <?= $form->field($model, 'created_at')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+    <?= $form->field($model, 'updated_at')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'mobile')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'position')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'phone')->textInput(['maxlength' => true]); ?>
+
+    <?= $form->field($model,'image')->fileInput()?>
+
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?=
+        Html::a('Cancel',['site/index'],[
+            'class' => 'btn btn-default',
+            'id' => 'cancel',
+        ])
+        ?>
     </div>
 
     <?php ActiveForm::end(); ?>

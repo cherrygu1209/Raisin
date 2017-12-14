@@ -2,6 +2,11 @@
 
 /* @var $this yii\web\View */
 /* @var $content string */
+$imagePath = '/'.Yii::$app->user->identity->image;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\bootstrap\Modal;
+backend\assets\ProfileAsset::register($this);
 $this->title = 'Raisin Backend';
 ?>
 
@@ -14,45 +19,14 @@ $this->title = 'Raisin Backend';
                 <div class="col-lg-12">
                     <div class="profile-widget profile-widget-info">
                         <div class="panel-body">
-                            <div class="col-lg-2 col-sm-2">
+                            <div class="col-lg-12 col-sm-12">
                                 <br/>
-                                <h5>User Name</h5>
-                                <p>Position</p>
+                                <img src="<?php echo Yii::$app->request->baseUrl.$imagePath?>" width="120" height="120" class="img-circle"/>
+                                <br />
+                                <h3><?= yii::$app->user->identity->username?></h3>
+                                <p><?= yii::$app->user->identity->position?></p>
                                 <br/>
                             </div>
-                            <!--<div class="col-lg-2 col-sm-6 follow-info weather-category">
-                                <ul>
-                                    <li class="active">
-
-                                        <i class="fa fa-comments fa-2x"> </i><br>
-
-                                        Messages
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="col-lg-2 col-sm-6 follow-info weather-category">
-                                <ul>
-                                    <li class="active">
-
-                                        <i class="fa fa-bell fa-2x"> </i><br>
-
-                                        Alerts
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="col-lg-2 col-sm-6 follow-info weather-category">
-                                <ul>
-                                    <li class="active">
-
-                                        <i class="fa fa-envelope fa-2x"> </i><br>
-
-                                        Mails
-                                    </li>
-
-                                </ul>
-                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -69,12 +43,6 @@ $this->title = 'Raisin Backend';
                                         Profile
                                     </a>
                                 </li>
-                                <li class="">
-                                    <a data-toggle="tab" href="#edit-profile">
-                                        <i class="fa fa-pencil fa-2x"></i>
-                                        Edit Profile
-                                    </a>
-                                </li>
                             </ul>
                         </header>
                         <div class="panel-body">
@@ -86,27 +54,29 @@ $this->title = 'Raisin Backend';
                                             <h1>Bio Graph</h1>
                                             <div class="row">
                                                 <div class="bio-row">
-                                                    <p><span>First Name </span>: Jenifer </p>
+                                                    <p><span>User Name </span><?= yii::$app->user->identity->username?> </p>
                                                 </div>
                                                 <div class="bio-row">
-                                                    <p><span>Last Name </span>: Smith</p>
+                                                    <p><span>Email </span><?= yii::$app->user->identity->email?></p>
                                                 </div>
                                                 <div class="bio-row">
-                                                    <p><span>Birthday</span>: 27 August 1987</p>
+                                                    <p><span>Position</span><?= yii::$app->user->identity->position?></p>
                                                 </div>
                                                 <div class="bio-row">
-                                                    <p><span>Country </span>: United</p>
+                                                    <p><span>Mobile </span><?= yii::$app->user->identity->mobile?></p>
                                                 </div>
                                                 <div class="bio-row">
-                                                    <p><span>Email </span>:jenifer@mailname.com</p>
-                                                </div>
-                                                <div class="bio-row">
-                                                    <p><span>Mobile </span>: (+6283) 456 789</p>
-                                                </div>
-                                                <div class="bio-row">
-                                                    <p><span>Phone </span>:  (+021) 956 789123</p>
+                                                    <p><span>Phone </span><?= yii::$app->user->identity->phone?></p>
                                                 </div>
                                             </div>
+                                            <?=
+                                            Html::a('Edit',['update'],[
+                                                'class' => 'btn btn-default btn-update',
+                                                'id' => 'update',
+                                                'data-toggle' => 'modal',
+                                                'data-target' => '#operate-modal',
+                                            ])
+                                            ?>
                                         </div>
                                     </section>
                                     <section>
@@ -115,7 +85,7 @@ $this->title = 'Raisin Backend';
                                     </section>
                                 </div>
                                 <!-- edit-profile -->
-                                <div id="edit-profile" class="tab-pane">
+                                <!--<div id="edit-profile" class="tab-pane">
                                     <section class="panel">
                                         <div class="panel-body bio-graph-info">
                                             <h1> Profile Info</h1>
@@ -184,7 +154,7 @@ $this->title = 'Raisin Backend';
                                             </form>
                                         </div>
                                     </section>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </section>
@@ -280,3 +250,27 @@ $this->title = 'Raisin Backend';
         </div>
     </div> -->
 </div>
+
+<?php
+Modal::begin([
+    'id' => 'operate-modal',
+    'header' => '<h4 class="modal-title"></h4>',
+]);
+Modal::end();
+?>
+
+<?php
+$userId = Yii::$app->user->identity->id;
+$requestUpdateUrl = Url::toRoute('user-backend/update');
+$js = <<<JS
+    $('.btn-update').on('click',function () {
+        $('.modal-title').html('Edit Profile');
+        $.get('{$requestUpdateUrl}',{id: $userId},
+            function(data) {
+              $('.modal-body').html(data);
+            }
+        );
+    });
+JS;
+$this->registerJs($js);
+?>

@@ -39,6 +39,7 @@ return [
                     'skin' => 'skin-purple',
                 ],
             ],
+            'appendTimestamp' => true,
         ],
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -87,19 +88,23 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             //whether to show the 'index.php'
-            'showScriptName' => false,
+            'showScriptName' => true,
             'enableStrictParsing' => false,
             'suffix' => '',
             'rules' => [
-                '/category' => '/category/index',
+                /*'/category' => '/category/index',
                 '/campaign' => '/campaign/index',
                 '/usermanagement' => '/user-backend/index',
                 '/menu' => '/admin/menu/index',
-                "<controller:\w+>/<action:\w+>"=>"<controller>/<action>",
+                "<controller:\w+>/<action:\w+>"=>"<controller>/<action>",*/
                 /*'<controller:\w+>/<id:\d+>' => '<controller>/view',*/
-                '/admin/menu/<id:\d+>' => '/admin/menu/view',
+                /*'/admin/menu/<id:\d+>' => '/admin/menu/view',*/
 
             ],
+        ],
+
+        'cache' => [
+            'class' => 'yii\caching\FileCache',
         ],
 
     ],
@@ -118,4 +123,16 @@ return [
 
     //'as MyBehavior' => \backend\components\MyBehavior::className(),
     'params' => $params,
+
+    //for the third party login
+    /*'authClientCollection' => [
+        'class' => 'yii\authclient\Collection',
+        'clients' => [
+            'facebook' => [
+                'class' => 'yii\authclient\clients\Facebook',
+                'clientId' => 'client_id',
+                'clientSecret' => 'secret_key',
+            ],
+        ],
+    ],*/
 ];
