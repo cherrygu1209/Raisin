@@ -11,14 +11,35 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'admin' => [
+            'class' => 'mdm\admin\Module',
+        ],
+    ],
+    'aliases' => [
+        '@mdm/admin' => '@vendor/mdmsoft/yii2-admin',
+    ],
     'components' => [
+        'view' => [
+            /*'theme' => [
+                // 'basePath' => '@app/themes/spring',
+                // 'baseUrl' => '@web/themes/spring',
+                'pathMap' => [
+                    '@app/views' => [
+                        '@app/themes/spring',
+                    ]
+                ],
+            ],*/
+        ],
+
+
         'assetManager' => [
             'bundles' => [
                 'dmstr\web\AdminLteAsset' => [
                     'skin' => 'skin-purple',
                 ],
             ],
+            'appendTimestamp' => true,
         ],
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -44,14 +65,74 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
+
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'defaultRoles' => ['guest'],
+        ],
+
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages', // if advanced application, set @frontend/messages
+                    'sourceLanguage' => 'en',
+                    'fileMap' => [
+                        //'main' => 'main.php',
+                    ],
+                ],
             ],
         ],
-        */
+
+
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            //whether to show the 'index.php'
+            'showScriptName' => true,
+            'enableStrictParsing' => false,
+            'suffix' => '',
+            'rules' => [
+                /*'/category' => '/category/index',
+                '/campaign' => '/campaign/index',
+                '/usermanagement' => '/user-backend/index',
+                '/menu' => '/admin/menu/index',
+                "<controller:\w+>/<action:\w+>"=>"<controller>/<action>",*/
+                /*'<controller:\w+>/<id:\d+>' => '<controller>/view',*/
+                /*'/admin/menu/<id:\d+>' => '/admin/menu/view',*/
+
+            ],
+        ],
+
+        'cache' => [
+            'class' => 'yii\caching\FileCache',
+        ],
+
     ],
+
+    //for theme dynamic switch
+    'as theme' => [
+        'class' => 'backend\components\ThemeControl',
+    ],
+
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',
+        ]
+    ],
+
+    //'as MyBehavior' => \backend\components\MyBehavior::className(),
     'params' => $params,
+
+    //for the third party login
+    /*'authClientCollection' => [
+        'class' => 'yii\authclient\Collection',
+        'clients' => [
+            'facebook' => [
+                'class' => 'yii\authclient\clients\Facebook',
+                'clientId' => 'client_id',
+                'clientSecret' => 'secret_key',
+            ],
+        ],
+    ],*/
 ];

@@ -18,8 +18,18 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
             <?= $form->field($model, 'username')->label('User Name')->textInput(['autofocus' => true]) ?>
             <?= $form->field($model, 'email')->label('Email Address') ?>
+            <?/*= $form->field($model, 'mobile')->textInput()->hint('Please enter your name')->label('Email ') */?>
+            <?/*= $form->field($model,'phone')*/?>
             <?= $form->field($model, 'password')->label('Password')->passwordInput() ?>
             <?= $form->field($model, 'confirmPass')->label('Confirm Password')->passwordInput() ?>
+            <?/*= $form->field($model,'image')->label('Image')->textInput()*/?>
+
+            <?php
+/*            echo $form->field($model, 'file')->widget('user-backend\FileInput', [
+            ]);
+            */?>
+
+
             <div class="form-group">
                 <?= Html::submitButton('Create', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
             </div>

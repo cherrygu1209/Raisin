@@ -8,6 +8,9 @@ use backend\models\UserBackendSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\components\Upload;
+use yii\web\Response;
+use yii\web\UploadedFile;
 
 /**
  * UserBackendController implements the CRUD actions for UserBackend model.
@@ -84,10 +87,17 @@ class UserBackendController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            //get the instance of the file
+            $imageName = $model->username;
+            $model->file = UploadedFile::getInstance($model,'image');
+            $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);
+            //save the path in the database column
+            $model->image = 'uploads/'.$imageName.'.'.$model->file->extension;
+            $model->save();
+            return $this->redirect(['site/index', 'id' => $model->id]);
         } else {
-            return $this->render('update', [
+            return $this->renderAjax('update', [
                 'model' => $model,
             ]);
         }
@@ -106,7 +116,7 @@ class UserBackendController extends Controller
         return $this->redirect(['index']);
     }
 
-    /*
+    /**
      * User sign up
      */
     public function actionSignup()
@@ -120,6 +130,7 @@ class UserBackendController extends Controller
 
         return $this->render('signup',['model'=>$model,]);
     }
+
 
     /**
      * Finds the UserBackend model based on its primary key value.

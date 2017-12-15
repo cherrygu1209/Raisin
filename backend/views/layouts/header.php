@@ -3,11 +3,12 @@ use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
+$imagePath = '/'.Yii::$app->user->identity->image;
 ?>
 
 <header class="main-header">
 
-    <?= Html::a('<span class="logo-mini">Raisin</span><span class="logo-lg">Raisin-backend</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?= Html::a('<span class="logo-mini">Raisin</span><span class="logo-lg">Raisin backend</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
     <nav class="navbar navbar-static-top" role="navigation">
 
@@ -73,8 +74,13 @@ use yii\helpers\Html;
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/user3-128x128.jpg" class="img-circle"
-                                                 alt="user image"/>
+                                            <!--<img src="<?/*= $directoryAsset*/?>/web/uploads/gugugu.jpg" class="img-circle"
+                                                 alt="user image"/>-->
+
+                                            <img src="<?php echo Yii::$app->request->baseUrl.'css/1.png'?>" width="94" height="92" class="img-circle"
+                                                alt="user image"/>
+                                            <!--<img src="<?/*= $directoryAsset */?>/img/user3-128x128.jpg" class="img-circle"
+                                                 alt="user image"/>-->
                                         </div>
                                         <h4>
                                             Sales Department
@@ -86,7 +92,7 @@ use yii\helpers\Html;
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/user4-128x128.jpg" class="img-circle"
+                                            <img src="<?= $directoryAsset ?>" class="img-circle"
                                                  alt="user image"/>
                                         </div>
                                         <h4>
@@ -229,22 +235,24 @@ use yii\helpers\Html;
 
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                        <span class="hidden-xs">Administrator</span>
+                        <span class="hidden-xs"><?= yii::$app->user->identity->username?></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
-                                 alt="User Image"/>
+
+                            <img src="<?php echo Yii::$app->request->baseUrl.$imagePath?>" width="30" height="30" class="img-circle"/>
 
                             <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                <?= yii::$app->user->identity->username?>
+                            </p>
+
+                            <p>
+                                <?= yii::$app->user->identity->position?>
                             </p>
                         </li>
                         <!-- Menu Body -->
-                        <li class="user-body">
+                        <!--<li class="user-body">
                             <div class="col-xs-4 text-center">
                                 <a href="#">Followers</a>
                             </div>
@@ -254,11 +262,17 @@ use yii\helpers\Html;
                             <div class="col-xs-4 text-center">
                                 <a href="#">Friends</a>
                             </div>
-                        </li>
+                        </li>-->
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <?= Html::a(
+                                    'Profile',
+                                    ['/site/index'],
+                                    ['class' => 'btn btn-default btn flat']
+                                    /*['data-method' => 'post', 'class' => 'btn btn-default btn-flat']*/
+                                ) ?>
+                                <!--<a href="/site/index" class="btn btn-default btn-flat">Profile</a>-->
                             </div>
                             <div class="pull-right">
                                 <?= Html::a(
@@ -270,11 +284,7 @@ use yii\helpers\Html;
                         </li>
                     </ul>
                 </li>
-
                 <!-- User Account: style can be found in dropdown.less -->
-                <li>
-                    <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                </li>
             </ul>
         </div>
     </nav>

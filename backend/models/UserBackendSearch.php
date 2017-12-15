@@ -19,7 +19,7 @@ class UserBackendSearch extends UserBackend
     {
         return [
             [['id'], 'integer'],
-            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'safe'],
+            [['username', 'auth_key', 'password_hash', 'email', 'mobile', 'position','phone','image'], 'safe'],
         ];
     }
 
@@ -60,8 +60,8 @@ class UserBackendSearch extends UserBackend
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            /*'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,*/
         ]);
 
         $query->andFilterWhere(['like', 'username', $this->username])

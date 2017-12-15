@@ -7,30 +7,38 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\UserBackendSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'User Backends';
+$this->title = 'User Management';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-backend-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
+        <h3 style="color: black">Create</h3>
         <?= Html::a('Create Administrator', ['signup'], ['class' => 'btn btn-success']) ?>
     </p>
+    <hr style=" height:1px;border:none;border-top:1px solid #185598;" />
+
+    <h3 style="color: black">Search</h3>
+    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+    <hr style=" height:1px;border:none;border-top:1px solid #185598;" />
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'username',
-            'auth_key',
-            'password_hash',
+            /*'auth_key',
+            'password_hash',*/
             'email:email',
-            // 'created_at',
-            // 'updated_at',
+            'mobile',
+            'position',
+            'phone',
+            'image',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

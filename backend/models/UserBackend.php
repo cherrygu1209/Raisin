@@ -13,11 +13,13 @@ use yii\web\IdentityInterface;
  * @property string $auth_key
  * @property string $password_hash
  * @property string $email
- * @property string $created_at
- * @property string $updated_at
+ * @property string $mobile
+ * @property string $position
+ * @property string $image
  */
 class UserBackend extends \yii\db\ActiveRecord implements IdentityInterface
 {
+    public $file;
     /**
      * @inheritdoc
      */
@@ -32,10 +34,11 @@ class UserBackend extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
-            [['created_at', 'updated_at'], 'safe'],
-            [['username', 'password_hash', 'email'], 'string', 'max' => 255],
+            [['username', 'auth_key', 'password_hash', 'email','created_at','updated_at'], 'required'],
+            [['username', 'password_hash', 'email','image'], 'string', 'max' => 255],
+            [['mobile','position','phone'],'string','max' => 20],
             [['auth_key'], 'string', 'max' => 32],
+            [['image'],'file','skipOnEmpty' => true, 'extensions' => 'png,jpg,gif'],
             [['email'], 'unique'],
             [['username'], 'unique'],
         ];
@@ -52,8 +55,12 @@ class UserBackend extends \yii\db\ActiveRecord implements IdentityInterface
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'email' => 'Email',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'created_at' => 'Created_at',
+            'updated_at' => 'Updated_at',
+            'mobile' => 'Mobile',
+            'position' => 'Position',
+            'phone' => 'Phone',
+            'image' => 'Image',
         ];
     }
 
