@@ -34,7 +34,7 @@ class UserBackend extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'auth_key', 'password_hash', 'email','created_at','updated_at'], 'required'],
+            [['username', 'auth_key', 'password_hash', 'email'], 'required'],
             [['username', 'password_hash', 'email','image'], 'string', 'max' => 255],
             [['mobile','position','phone'],'string','max' => 20],
             [['auth_key'], 'string', 'max' => 32],
