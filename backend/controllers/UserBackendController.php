@@ -86,14 +86,23 @@ class UserBackendController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $current_image = $model->image;
 
         if ($model->load(Yii::$app->request->post())) {
             //get the instance of the file
             $imageName = $model->username;
             $model->file = UploadedFile::getInstance($model,'image');
-            $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);
+            if(!empty($model->file) && $model->file->size !== 0) {
+                $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);
+                $model->image = 'uploads/'.$imageName.'.'.$model->file->extension;
+            }else {
+                $model->image = $current_image;
+            }
+
+
+            /*$model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);*/
             //save the path in the database column
-            $model->image = 'uploads/'.$imageName.'.'.$model->file->extension;
+            /*$model->image = 'uploads/'.$imageName.'.'.$model->file->extension;*/
             $model->save();
             return $this->redirect(['site/index', 'id' => $model->id]);
         } else {
