@@ -248,7 +248,7 @@ $imagePath = '/'.Yii::$app->user->identity->image;
                             </p>
 
                             <p>
-                                <?= yii::$app->user->identity->position?>
+                                <?= yii::$app->user->identity->email?>
                             </p>
                         </li>
                         <!-- Menu Body -->

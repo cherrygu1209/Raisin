@@ -11,9 +11,9 @@ use yii\helpers\Url;
 <div class="campaign-form">
 
     <?php $form = ActiveForm::begin([
-        'id' => 'campaign-id',
+        /*'id' => 'campaign-id',
         'enableAjaxValidation' => true,
-        'validationUrl' => Url::toRoute(['validate-form']),
+        'validationUrl' => Url::toRoute(['validate-form']),*/
         ]); ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>

@@ -9,7 +9,6 @@ use yii\helpers\Url;
 /* @var $searchModel backend\models\CampaignSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-backend\assets\TestAsset::register($this);
 $this->title = 'Campaigns';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -19,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
+        <h3 style="color: black">Create</h3>
         <?= Html::a('Create Campaign', ['create'], [
         'class' => 'btn btn-success',
         'id' => 'create',
@@ -26,9 +26,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'data-target' => '#operate-modal',
         ]) ?>
     </p>
+    <hr style=" height:1px;border:none;border-top:1px solid #185598;" />
+
+    <h3 style="color: black">Search</h3>
+    <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+    <hr style=" height:1px;border:none;border-top:1px solid #185598;" />
+
+    <h3 style="color: black">Campaign List</h3>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -36,9 +43,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'content:ntext',
             'views',
-            'is_delete',
-            // 'created_at',
-            // 'updated_at',
+            //'is_delete',
+            'created_at',
+            'updated_at',
 
             [
                 'class' => 'yii\grid\ActionColumn',

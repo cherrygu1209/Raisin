@@ -31,11 +31,12 @@ class Campaign extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['content', 'created_at', 'updated_at'], 'required'],
+            [['content'], 'required'],
             [['content'], 'string'],
             [['views', 'is_delete'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['title'], 'string', 'max' => 100],
+            [['created_at','updated_at'],'default','value' => date('Y-m-d H:m:s')]
         ];
     }
 
