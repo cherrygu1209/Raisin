@@ -24,11 +24,21 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
-<?php $this->beginBody() ?>
+    <?php $this->beginBody() ?>
 
-<div class="wrap">
+    <?=$this->render('header')?>
+    <div id="main">
+    <?php /*= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ])*/ ?>
+    <?= Alert::widget() ?>
+    <?=$content?>
+    </div>
+    <?=$this->render('footer')?>
+
+<!--<div class="wrap">
     <?php
-    NavBar::begin([
+/*    NavBar::begin([
         'brandLabel' => 'My Company',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
@@ -58,26 +68,26 @@ AppAsset::register($this);
         'items' => $menuItems,
     ]);
     NavBar::end();
-    ?>
+    */?>
 
     <div class="container">
-        <?= Breadcrumbs::widget([
+        <?/*= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+        ]) */?>
+        <?/*= Alert::widget() */?>
+        <?/*= $content */?>
     </div>
-</div>
+</div>-->
 
-<footer class="footer">
+<!--<footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; My Company <?/*= date('Y') */?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><?/*= Yii::powered() */?></p>
     </div>
-</footer>
+</footer>-->
 
-<?php $this->endBody() ?>
+    <?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>
