@@ -1,7 +1,6 @@
 <?php
 namespace frontend\controllers;
 
-use app\models\EntryForm;
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -218,9 +217,9 @@ class SiteController extends Controller
      * @param string $message
      * @return mixed
      */
-    public function actionSay($message = 'Hello')
+    /*public function actionSay($message = 'Hello')
     {
         return $this->render('say', ['message' => $message]);
-    }
+    }*/
 }
 

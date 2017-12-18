@@ -85,7 +85,8 @@ class CampaignController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(Url::toRoute('index'));
+            /*return $this->redirect(Url::toRoute('index'));*/
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->renderAjax('update', [
                 'model' => $model,
