@@ -18,7 +18,7 @@ class CampaignSearch extends Campaign
     public function rules()
     {
         return [
-            [['c_title', 'c_image', 'c_description', 'c_start_date', 'c_end_date', 'c_author', 'c_video', 'c_description_long'], 'safe'],
+            [['c_title', 'c_image', 'c_description', 'c_start_date', 'c_end_date', 'c_video', 'c_description_long', 'c_author', 'c_created_at'], 'safe'],
             [['c_goal', 'c_id'], 'integer'],
         ];
     }
@@ -63,14 +63,15 @@ class CampaignSearch extends Campaign
             'c_end_date' => $this->c_end_date,
             'c_goal' => $this->c_goal,
             'c_id' => $this->c_id,
+            'c_created_at' => $this->c_created_at,
         ]);
 
         $query->andFilterWhere(['like', 'c_title', $this->c_title])
             ->andFilterWhere(['like', 'c_image', $this->c_image])
             ->andFilterWhere(['like', 'c_description', $this->c_description])
-            ->andFilterWhere(['like', 'c_author', $this->c_author])
             ->andFilterWhere(['like', 'c_video', $this->c_video])
-            ->andFilterWhere(['like', 'c_description_long', $this->c_description_long]);
+            ->andFilterWhere(['like', 'c_description_long', $this->c_description_long])
+            ->andFilterWhere(['like', 'c_author', $this->c_author]);
 
         return $dataProvider;
     }

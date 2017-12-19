@@ -18,15 +18,10 @@ $this->title = 'Create Campaign';
 $this->params['breadcrumbs'][] = ['label' => 'Campaigns', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
-          $model = new Campaign(); 
-//          $modelReward = new CampaignRewards(); 
-//          $modelStory = new CampaignStory();
-//          $modelYourself = new CampaignYourself();
+            $model = new Campaign(); 
 ?>
 <div class="campaign-create">
 
-   <!-- <h1>
-   -->
    
 <!-- Page Header -->
     <header class="masthead" style="background-image:url('img/start_campaign.jpg')">
@@ -49,46 +44,45 @@ $this->params['breadcrumbs'][] = $this->title;
           <div class="post-preview">
     <?php
     
-    $form = ActiveForm::begin();
+    $form = ActiveForm::begin([
+        'id' => 'campaign-create-form',
+    ]);
     
     $wizard_config = [
-	'id' => 'stepwizard',
 	'steps' => [
-		1 => [
+		'1' => [
 			'title' => 'Start your campaign',
 			'icon' => 'glyphicon glyphicon-user',
-			'content' => $this->render('_form_1',[ 'form' => $form,
-                            'model' => $model,
-                            ]),
+			'content' => $this->render('_form_1',['model' => $model]),
 			'buttons' => [
 				'next' => [
 					'title' => 'Save and continue',
-                                        'type'=>'submit',
 					'options' => [
 						'class' => 'btn btn-info btn-next btn-lg'
 					],
 				 ],
 			 ],
 		],
-		2 => [
+		'2' => [
 			'title' => 'The Story',
 			'icon' => 'glyphicon glyphicon-gift',
-			'content' => $this->render('_form_2',[ 'form' => $form,
-                            'model' => $model,
-                            ]),
+			'content' => $this->render('_form_2',['model' => $model]),
                         'buttons' => [
                             'save' => [
-                            'html' => Html::submitButton('Create',
-                                    [
-                                        'class' => 'btn btn-info btn-next btn-lg',
-                                        'id' => 'wizard_step3_final',
-                                        'name' => 'submit',
-                                        'value' => 'save-final'
-                                    ]
-                                ),
+                            'html' => Html::submitButton('Save',['class' => 'btn btn-info btn-next btn-lg']),
                             ],
                         ],
-                ],                   
+                ],
+//                '3' => [
+//			'title' => 'The Profile',
+//			'icon' => 'glyphicon glyphicon-gift',
+//			'content' => $this->render('_form_3',['model' => $model]),
+//                        'buttons' => [
+//                            'save' => [
+//                            'html' => Html::submitButton('Save',['class' => 'btn btn-info btn-next btn-lg']),
+//                            ],
+//                        ],
+//                ],
 	],
 	
 	'complete_content' => "You are done!", // Optional final screen

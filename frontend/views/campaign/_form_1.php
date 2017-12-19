@@ -8,7 +8,6 @@ use frontend\models\Campaign;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Campaign */
 /* @var $form yii\widgets\ActiveForm */
-$model = new Campaign();
 ?>
 
 <div class="text-left">
@@ -48,7 +47,7 @@ $model = new Campaign();
     
     <?= $form->field($model, 'c_image')->textInput(['maxlength' => true]);  ?>
     
-    <?= $form->field($model, 'c_description')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'c_description')->textarea(['rows' => 3]) ?>
     
     <?= $form->field($model, 'c_start_date')->widget(
          DatePicker::className(), [
@@ -76,12 +75,10 @@ $model = new Campaign();
 
     <?= $form->field($model, 'c_goal')->textInput() ?>
     
-    <?= $form->field($model, 'c_author')->textInput(['maxlength' => true]) ?>
-    
 <!--    <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>-->
+    </div>
 
-    <?php ActiveForm::end(); ?>
+    <?php ActiveForm::end(); ?>-->
     </div>
 </div>

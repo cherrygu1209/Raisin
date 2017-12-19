@@ -10,7 +10,26 @@ use yii\grid\GridView;
 $this->title = 'Campaigns';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="campaign-index">
+<div class="site-about">
+    <body>
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/about-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="page-heading">
+                        <h1>All Campaigns</h1>
+                        <span class="subheading"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+    <div class="campaign-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -38,4 +57,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-</div>
+    </div>
+    <hr>
+    </body>
+    </div>
+    </div>

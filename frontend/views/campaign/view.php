@@ -6,13 +6,31 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Campaign */
 
-$this->title = $model->c_id;
+$this->title = $model->c_title;
 $this->params['breadcrumbs'][] = ['label' => 'Campaigns', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="campaign-view">
+<div class="site-about">
+    <body>
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/about-bg.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="page-heading">
+                        <h1><?=$model->c_title?></h1>
+                        <span class="subheading"><?=$model->c_description?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="campaign-view">
+        <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->c_id], ['class' => 'btn btn-primary']) ?>
@@ -41,4 +59,9 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+        </div>
+    </div>
+    <hr>
+    </body>
 </div>
+
