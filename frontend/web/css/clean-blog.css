@@ -104,6 +104,8 @@ body {
         color: #fff; }
         #mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover {
           color: rgba(255, 255, 255, 0.8); } }
+
+
   @media only screen and (min-width: 992px) {
     #mainNav {
       -webkit-transition: background-color 0.2s;
@@ -140,6 +142,7 @@ body {
         -ms-transform: translate3d(0, 100%, 0);
         -o-transform: translate3d(0, 100%, 0);
         transform: translate3d(0, 100%, 0); } }
+
 
 header.masthead {
   margin-bottom: 50px;
@@ -321,3 +324,6 @@ footer {
 .btn-lg {
   font-size: 16px;
   padding: 25px 35px; }
+
+
+
