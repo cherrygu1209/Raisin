@@ -3,7 +3,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Url;
 use yii\helpers\Html;
-//$imagePath = '/'.Yii::$app->user->identity->image;
+$imagePath = '/'.Yii::$app->user->identity->image;
 ?>
 <header class="main-header">
 
@@ -48,7 +48,8 @@ use yii\helpers\Html;
                           <a href="#"><?= Yii::$app->user->identity->username?></a>
 
                           <ul class="sub-menu">
-                              <li><a href="#">Profile</a></li>
+                              <img src="<?php echo Yii::$app->request->baseUrl.$imagePath?>" width="30" height="30" class="img-circle" align="center"/>
+                              <li><?= Html::a('Profile', ['user/index'])?></li>
                               <li><a href="#">Portfolio</a></li>
                               <li><a href="#">Campaign</a></li>
                               <li><a href="#">My Wallet</a></li>
