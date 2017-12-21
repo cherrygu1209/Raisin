@@ -42,14 +42,16 @@ $this->registerJsFile('js/clean-blog.min.js');
                 <tr>
                     <td>
                         <a href="<?=Url::to(['campaign/view','id'=>$campaign->c_id])?>">
-                            <p><?=Html::img(Url::to('@web/uploads/Koala.jpg'),['class' => 'img-responsive'],['alt'=>'Image'],['align'=>'left'],['width'=>'42'],['height'=>'42'])?></p>
+                            <p><?=Html::img(Url::to('@web/uploads/'.$campaign->c_image),['class' => 'img-responsive'],['alt'=>'Image'],['align'=>'left'],['width'=>'42'],['height'=>'42'])?></p>
                         </a>
                     </td>
                     <td>
+                        <a href="<?=Url::to(['campaign/view','id'=>$campaign->c_id])?>">
                         <p><div><?=$campaign->c_title?></div></p>              
                         <p><div><?=$campaign->c_description?></div></p>    
                         <p><div><?=$campaign->c_start_date?></div></p>
                         <p><div><?=$campaign->c_end_date?></div></p>
+                        </a>
                     </td>
                 </tr>
                 <?php }?>

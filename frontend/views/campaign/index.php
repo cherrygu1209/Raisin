@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use dosamigos\datepicker\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\CampaignSearch */
@@ -46,7 +47,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'c_title',
             'c_image',
             'c_description',
-            'c_start_date',
+            [
+                'attribute'=>'c_start_date',
+                'value'=>'c_start_date',
+                'format'=>'raw',
+                'filter'=> DatePicker::widget([
+                    'model' => $searchModel,
+                    'attribute' => 'c_start_date',
+                    'template' => '{addon}{input}',
+                        'clientOptions' => [
+                            'autoclose' => true,
+                            'format' => 'dd-M-yyyy'
+                        ]
+                ]),
+            ],
+            //'c_start_date',
             'c_end_date',
             // 'c_goal',
             // 'c_id',

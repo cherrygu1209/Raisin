@@ -43,19 +43,32 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
+        <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'c_title',
-            'c_image',
+            [
+                'label'=>'Campaign Image',
+                'attribute'=> 'c_image',
+                'format' => 'html',
+                'value'=>function($model){
+                    return yii\bootstrap\Html::img('@web/uploads/'.$model->c_image,['width'=>'150']);
+                }
+            ],
             'c_description',
             'c_start_date',
             'c_end_date',
             'c_goal',
-            'c_id',
-            'c_author',
+//            'c_id',
             'c_video:ntext',
             'c_description_long:ntext',
+//            'c_author',
+//            'c_created_at',
+            'c_display_name',
+            'c_email:email',
+            'c_location',
+            'c_biography:ntext',
+            'c_social_profile',
         ],
     ]) ?>
 

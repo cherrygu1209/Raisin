@@ -8,6 +8,8 @@ use frontend\models\CampaignSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\uploads;
+use yii\web\UploadedFile;
 
 /**
  * CampaignController implements the CRUD actions for Campaign model.
@@ -67,6 +69,14 @@ class CampaignController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             $model-> c_author = Yii::$app->user->identity->getId();
+            
+            
+            //$imageName = $model->c_title;
+            $model->file = UploadedFile::getInstance($model,'file');
+            $model->file->saveAs('uploads/'.$model->file->baseName.'.'.$model->file->extension);
+            
+            $model->c_image=$model->file->baseName.'.'.$model->file->extension;
+            
             if($model->save(false)){
                 return $this->redirect(['view', 'id' => $model->c_id]);
             }
@@ -87,6 +97,10 @@ class CampaignController extends Controller
         $model = $this->findModel($id);
         if($model->load(Yii::$app->request->post())){
             $model->c_author = Yii::$app->user->identity->getId();
+            $model->file = UploadedFile::getInstance($model,'file');
+            $model->file->saveAs('uploads/'.$model->file->baseName.'.'.$model->file->extension);
+            
+            $model->c_image=$model->file->baseName.'.'.$model->file->extension;
             if($model->save(false)){
                 return $this->redirect(['view','id'=>$id]);
             }

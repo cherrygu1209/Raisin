@@ -9,18 +9,23 @@ use yii\widgets\ActiveForm;
 ?>
 <div class="form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
         <?= $form->field($model, 'c_title') ?>
-        <?= $form->field($model, 'c_image') ?>
+        <?= $form->field($model, 'file')->fileInput();  ?>
         <?= $form->field($model, 'c_description') ?>
         <?= $form->field($model, 'c_start_date') ?>
         <?= $form->field($model, 'c_end_date') ?>
         <?= $form->field($model, 'c_goal') ?>
+        <?= $form->field($model, 'c_created_at') ?>
         <?= $form->field($model, 'c_video') ?>
         <?= $form->field($model, 'c_description_long') ?>
-        <?= $form->field($model, 'c_created_at') ?>
         <?= $form->field($model, 'c_author') ?>
+        <?= $form->field($model, 'c_display_name') ?>
+        <?= $form->field($model, 'c_email') ?>
+        <?= $form->field($model, 'c_location') ?>
+        <?= $form->field($model, 'c_biography') ?>
+        <?= $form->field($model, 'c_social_profile') ?>
     
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>

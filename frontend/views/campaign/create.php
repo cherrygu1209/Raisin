@@ -46,6 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
     
     $form = ActiveForm::begin([
         'id' => 'campaign-create-form',
+        'options' => ['enctype' => 'multipart/form-data']
     ]);
     
     $wizard_config = [
@@ -68,25 +69,43 @@ $this->params['breadcrumbs'][] = $this->title;
 			'icon' => 'glyphicon glyphicon-gift',
 			'content' => $this->render('_form_2',['model' => $model]),
                         'buttons' => [
+				'next' => [
+					'title' => 'Save and continue',
+					'options' => [
+						'class' => 'btn btn-info btn-next btn-lg'
+					],
+				 ],
+                                'prev' =>[
+                                    'title' => 'Previous',
+					'options' => [
+						'class' => 'btn btn-info btn-next btn-lg'
+					],
+                                    
+                                ]
+			 ],
+                ],
+                '3' => [
+			'title' => 'The Profile',
+			'icon' => 'glyphicon glyphicon-gift',
+			'content' => $this->render('_form_3',['model' => $model]),
+                        'buttons' => [
+                            'prev' =>[
+                                    'title' => 'Previous',
+					'options' => [
+						'class' => 'btn btn-info btn-next btn-lg'
+					],
+                                    
+                                ],
                             'save' => [
                             'html' => Html::submitButton('Save',['class' => 'btn btn-info btn-next btn-lg']),
                             ],
                         ],
                 ],
-//                '3' => [
-//			'title' => 'The Profile',
-//			'icon' => 'glyphicon glyphicon-gift',
-//			'content' => $this->render('_form_3',['model' => $model]),
-//                        'buttons' => [
-//                            'save' => [
-//                            'html' => Html::submitButton('Save',['class' => 'btn btn-info btn-next btn-lg']),
-//                            ],
-//                        ],
-//                ],
+                
 	],
 	
 	'complete_content' => "You are done!", // Optional final screen
-	//'start_step' => 2, // Optional, start with a specific step
+	'start_step' => 1, // Optional, start with a specific step
 ];
 ?>
 

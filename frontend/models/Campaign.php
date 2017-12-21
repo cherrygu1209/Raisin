@@ -18,12 +18,19 @@ use Yii;
  * @property string $c_description_long
  * @property string $c_author
  * @property string $c_created_at
+ * @property string $c_display_name
+ * @property string $c_email
+ * @property string $c_location
+ * @property string $c_biography
+ * @property string $c_social_profile
  */
 class Campaign extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
+    public $file;
+    
     public static function tableName()
     {
         return 'campaign';
@@ -35,12 +42,13 @@ class Campaign extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['c_title', 'c_image', 'c_description', 'c_start_date', 'c_end_date', 'c_goal', 'c_video', 'c_description_long'], 'required'],
-            [['c_start_date', 'c_end_date', 'c_created_at','c_author'], 'safe'],
+            [['c_title', 'c_description', 'c_start_date', 'c_end_date', 'c_goal'], 'required'],
+            [['c_start_date', 'c_end_date', 'c_created_at', 'c_video', 'c_description_long', 'c_author', 'c_display_name', 'c_email', 'c_location', 'c_biography', 'c_social_profile','file'], 'safe'],
             [['c_goal'], 'integer'],
-            [['c_video', 'c_description_long'], 'string'],
+            [['c_video', 'c_description_long', 'c_biography'], 'string'],
             [['c_title', 'c_image'], 'string', 'max' => 100],
-            [['c_description', 'c_author'], 'string', 'max' => 255],
+            [['c_description', 'c_author', 'c_display_name', 'c_email', 'c_location', 'c_social_profile'], 'string', 'max' => 255],
+            [['file'],'file','extensions'=>'jpg,png,gif'],
         ];
     }
 
@@ -50,17 +58,22 @@ class Campaign extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'c_title' => 'C Title',
-            'c_image' => 'C Image',
-            'c_description' => 'C Description',
-            'c_start_date' => 'C Start Date',
-            'c_end_date' => 'C End Date',
-            'c_goal' => 'C Goal',
+            'c_title' => 'Campaign Title',
+            'file' => 'Campaign Image',
+            'c_description' => 'Short Description',
+            'c_start_date' => 'Start Date',
+            'c_end_date' => 'End Date',
+            'c_goal' => 'Goal',
             'c_id' => 'C ID',
-            'c_video' => 'C Video',
-            'c_description_long' => 'C Description Long',
-            'c_author' => 'C Author',
-            'c_created_at' => 'C Created At',
+            'c_video' => 'Video',
+            'c_description_long' => 'Campaign Description',
+            'c_author' => 'Author',
+            'c_created_at' => 'Created At',
+            'c_display_name' => 'Display Name',
+            'c_email' => 'Email',
+            'c_location' => 'Location',
+            'c_biography' => 'Biography',
+            'c_social_profile' => 'Social Profile',
         ];
     }
 }
