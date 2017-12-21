@@ -56,7 +56,7 @@ $this->registerJsFile('js/user/modernizr.js');
                         </div>
                     </div>
                 </div>-->
-                <div class="col-lg-offset-1 col-md-10 col-sm-10 col-xs-10">
+                <div class="col-lg-offset-1 col-md-9 col-sm-9 col-xs-9">
                     <div class="panel panel-default">
                         <div style="margin: 20px auto; width: 200px; text-align: center;">
                             <h1 style="font-size:20px;">My basic profile</h1>
