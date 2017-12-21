@@ -9,6 +9,38 @@ use frontend\models\Campaign;
 /* @var $model frontend\models\Campaign */
 /* @var $form yii\widgets\ActiveForm */
 ?>
+<style>
+    #preview{
+        width:580px;
+        border:1px solid#e5e5e5;
+        height:420px;
+    }
+    #preview img{
+        width:100%;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"
+        integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
+        crossorigin="annonymous">
+</script>
+<script type="text/javascript">
+    function readURL(input){
+        if(input.files && input.files[0]){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('#preview img').attr('src',e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $(document).on('change','input[type="file"]',function(){
+        readURL(this);
+    })
+</script>
+
+
 <div class="container">
 <div class="text-left">
     <div class="form-group">
@@ -16,7 +48,9 @@ use frontend\models\Campaign;
 
     <?= $form->field($model, 'c_title')->textInput(['maxlength' => true]) ?>
       
+    <div id="preview"><img src="" alt="Preview"/></div>
     <?= $form->field($model, 'file')->fileInput();  ?>
+        
     
     <?= $form->field($model, 'c_description')->textarea(['rows' => 3]) ?>
     
@@ -50,3 +84,4 @@ use frontend\models\Campaign;
     </div>
 </div>
 </div>
+
