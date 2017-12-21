@@ -17,6 +17,27 @@ use yii\helpers\Html;
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+
+
+              <!-- search box not implement yet -->
+              <!--<form class="navbar-form navbar-right" role="search">
+
+                  <button type="button" id="btn-togglesearch" class="btn-search">
+                      <span class="fa fa-bars" aria-hidden="true"></span>
+                      <span>Toggle search</span>
+                  </button>
+
+                  <div>
+                      <input>
+                  </div>
+
+                  <button>
+                      <span></span>
+                      <span>Submit search</span>
+                  </button>
+              </form>-->
+
+
             <li class="nav-item">
               <a class="nav-link" href="<?=Url::to(['/site/index'])?>">Whitepaper</a>
             </li>

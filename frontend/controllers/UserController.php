@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use frontend\components\AccessControl;
 use Yii;
 use frontend\models\User;
 use frontend\models\UserSearch;
@@ -20,11 +21,24 @@ class UserController extends Controller
     public function behaviors()
     {
         return [
+            /*'as access' => [
+                'class' => 'frontend\components\AccessControl',
+            ],*/
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
                 ],
+            ],
+            'access' => [
+                'class' => 'yii\filters\AccessControl',
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ]
+
             ],
         ];
     }
