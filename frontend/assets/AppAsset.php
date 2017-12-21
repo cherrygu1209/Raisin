@@ -23,6 +23,8 @@ class AppAsset extends AssetBundle
         'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700',
         'css/user/reset.css',
         'css/user/style.css',
+        'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+        'https://bootswatch.com/cosmo/bootstrap.min.css',
     ];
     public $js = [
         'js/clean-blog.js',
