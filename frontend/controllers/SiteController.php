@@ -7,6 +7,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use frontend\models\Campaign;
 use frontend\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -72,7 +73,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = Campaign::find()->all();
+        return $this->render('index',['model'=>$model]);
     }
 
     /**
@@ -209,6 +211,12 @@ class SiteController extends Controller
         return $this->render('resetPassword', [
             'model' => $model,
         ]);
+    }
+    
+    public function actionView($id)
+    {
+        $model = Campaign::findOne(['id'=>$id]);
+        return $this->render('campaign/view',['model'=>$model]);
     }
 
     /**

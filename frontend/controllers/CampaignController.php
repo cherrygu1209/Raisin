@@ -8,6 +8,8 @@ use frontend\models\CampaignSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\uploads;
+use yii\web\UploadedFile;
 
 /**
  * CampaignController implements the CRUD actions for Campaign model.
@@ -65,51 +67,23 @@ class CampaignController extends Controller
     {
         $model = new Campaign();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->c_id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
-    }
-    
-    public function actionNew($id)
-    {
-        $request = Yii::$app->request;
-        
-        if(!$model = Model::findOne([$id])){
-            $model = new Campaign();
-        }
-
-        if ($model->load($request->post('submit')=='final-step')){
-                      
-            //Set the path that the file will be uploaded to
-            $path = Yii::getAlias('@frontend') .'/web/uploads/';
+        if ($model->load(Yii::$app->request->post())) {
+            $model-> c_author = Yii::$app->user->identity->getId();
             
-            //get the instance of the uploaded file
-            $imageName = $model -> c_title;
-            $imageName1 = str_replace(" ", "", $imageName);
-            $model->file = \yii\web\UploadedFile::getInstance($model, 'file');
-            $model -> file ->saveAs($path.$imageName.'.'.$model->file->extension);
             
-            //save the path in the db column
-            $model->c_image = $path.$imageName.'.'.$model->file->extension;
+            //$imageName = $model->c_title;
+            $model->file = UploadedFile::getInstance($model,'file');
+            $model->file->saveAs('uploads/'.$model->file->baseName.'.'.$model->file->extension);
             
-            //$model->save();
+            $model->c_image=$model->file->baseName.'.'.$model->file->extension;
             
-            if ($Dataset-save()){
-                return $this ->redirect(['/campaign/startCam']);
-            }else{
-                return $this ->redirect(['create', 'model' => $model, 'step' =>3]);
+            if($model->save(false)){
+                return $this->redirect(['view', 'id' => $model->c_id]);
             }
-            
-            
-        } else {
-            return $this->render('create', [
+        }
+        return $this->render('create', [
                 'model' => $model,
             ]);
-        }
     }
 
     /**
@@ -121,14 +95,17 @@ class CampaignController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->c_id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+        if($model->load(Yii::$app->request->post())){
+            $model->c_author = Yii::$app->user->identity->getId();
+            $model->file = UploadedFile::getInstance($model,'file');
+            $model->file->saveAs('uploads/'.$model->file->baseName.'.'.$model->file->extension);
+            
+            $model->c_image=$model->file->baseName.'.'.$model->file->extension;
+            if($model->save(false)){
+                return $this->redirect(['view','id'=>$id]);
+            }
         }
+        return $this->render('update',['model'=>$model]);
     }
 
     /**

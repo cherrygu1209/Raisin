@@ -23,7 +23,8 @@
         "yiisoft/yii2-authclient": "^2.1",
         "bailangzhan/yii2-webuploader": "dev-master",
         "2amigos/yii2-date-picker-widget": "~1.0",
-        "drsdre/yii2-wizardwidget": "*"
+        "drsdre/yii2-wizardwidget": "*",
+        "kartik-v/yii2-widgets": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

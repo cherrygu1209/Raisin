@@ -321,3 +321,14 @@ footer {
 .btn-lg {
   font-size: 16px;
   padding: 25px 35px; }
+
+body > div {
+    border:1px dashed red;
+    margin-bottom:10px;    
+}
+table {
+    border-spacing: 5px;
+}
+th, td {
+    padding: 15px;
+}
