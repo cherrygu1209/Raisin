@@ -2,7 +2,6 @@
 
 namespace frontend\controllers;
 
-use frontend\components\AccessControl;
 use Yii;
 use frontend\models\User;
 use frontend\models\UserSearch;

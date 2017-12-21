@@ -106,28 +106,10 @@
 }
 
 
-.ico, .fa {
-    color: #ffffff;
-    -moz-transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-}
-
-.ico:hover,
-.ico:focus,
-.fa:hover,
-.fa:focus {
-    color: #ffffff;
-}
 
 
 
-
-
-
-
-
-/* after user login */
+/*
 .clearfix:after {
     display:block;
     clear:both;
@@ -153,7 +135,7 @@
 .menu a {
     transition:all linear 0.15s;
     font-weight: bold;
-    color: 212529;
+    color: #99CCCC;
 }
 
 .menu li:hover > a, .menu .current-item > a {
@@ -216,6 +198,12 @@
     background: rgba(255,255,255,.8);
 }
 
+.ico, .fa {
+    color: #ffffff;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
 
 
 
