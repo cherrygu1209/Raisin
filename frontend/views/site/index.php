@@ -5,7 +5,7 @@ use yii\helpers\Url;
 use frontend\models\Campaign;
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Raisin';
 $this->registerCssFile('vendor/bootstrap/css/bootstrap.min.css');
 $this->registerCssFile('vendor/font-awesome/css/font-awesome.min.css');
 $this->registerCssFile('https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic');
@@ -63,7 +63,7 @@ $this->registerJsFile('js/clean-blog.min.js');
           </div>
         </div>
       </div>
-    </div>
+  </div>
 
     <hr>
 </div> 
