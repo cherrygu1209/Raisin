@@ -75,15 +75,21 @@ $this->registerJsFile('js/user/modernizr.js');
                             <h3 style="text-align: center">Account Information</h3>
                             <br><br>
                             <form class="form-horizontal">
-                                <label for="First_name" style="font-size: 16px">User Name</label>
-                                <input type="text" class="form-control" id="First_name" placeholder="John" value="John">
-                                <br><br>
-                                <label for="Last_name" style="font-size: 16px">Email Address</label>
-                                <input type="email" class="form-control" id="Last_name" placeholder="Doe" value="Doe">
+                                <!--<label for="First_name" style="font-size: 20px">User Name</label>-->
+                                <h6>User Name</h6>
+                                <br>
+                                <p style="font-size: 16px"><?= yii::$app->user->identity->username?></p>
+                                <!--<input type="text" class="form-control" id="First_name" placeholder="John" value="John">-->
+                                <br />
+                                <h6>Email Address</h6>
+                                <br />
+                                <!--<label for="Last_name" style="font-size: 20px">Email Address</label>-->
+                                <p style="font-size: 16px"><?= yii::$app->user->identity->email?></p>
+                                <!--<input type="email" class="form-control" id="Last_name" placeholder="Doe" value="Doe">-->
                             </form>
                         </div>
                     </div>
-                    <div class="panel panel-default">
+                    <!--<div class="panel panel-default">
                         <div class="panel-body">
                             <h3 class="panel-title pull-left">Describe yourself in 5 words</h3>
                             <br><br>
@@ -91,7 +97,7 @@ $this->registerJsFile('js/user/modernizr.js');
                                 <input type="text" class="form-control" id="keywords" placeholder="Like #movies #kittens #travel #teacher #newyork">
                             </form>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <h3 style="text-align: center">Your photo</h3>
@@ -319,34 +325,6 @@ $this->registerJsFile('js/user/modernizr.js');
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </main>
     </body>
 
