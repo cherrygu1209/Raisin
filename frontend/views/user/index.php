@@ -72,12 +72,13 @@ $this->registerJsFile('js/user/modernizr.js');
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <h3 class="panel-title pull-left">Account Information</h3>
+                            <h3 style="text-align: center">Account Information</h3>
                             <br><br>
                             <form class="form-horizontal">
-                                <label for="First_name">First name</label>
+                                <label for="First_name" style="font-size: 16px">User Name</label>
                                 <input type="text" class="form-control" id="First_name" placeholder="John" value="John">
-                                <label for="Last_name">Last name</label>
+                                <br><br>
+                                <label for="Last_name" style="font-size: 16px">Email Address</label>
                                 <input type="email" class="form-control" id="Last_name" placeholder="Doe" value="Doe">
                             </form>
                         </div>
@@ -93,7 +94,7 @@ $this->registerJsFile('js/user/modernizr.js');
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <h3 class="panel-title pull-left">Your photo</h3>
+                            <h3 style="text-align: center">Your photo</h3>
                             <br><br>
                             <div align="center">
                                 <div class="col-lg-12 col-md-12">
@@ -107,7 +108,7 @@ $this->registerJsFile('js/user/modernizr.js');
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <h3 class="panel-title pull-left">My extended profile</h3>
+                            <h3 style="text-align: center">Extend Profile</h3>
                             <br><br>
                             <p>Visibility of your extended profile:</p>
                             ...
@@ -292,7 +293,7 @@ $this->registerJsFile('js/user/modernizr.js');
                         </div>
                     </div>
                     <hr>
-                    <div class="panel panel-default">
+                    <!--<div class="panel panel-default">
                         <div class="panel-body">
                             <h3 class="panel-title pull-left">Profile settings</h3>
                             <br><br>
@@ -314,7 +315,7 @@ $this->registerJsFile('js/user/modernizr.js');
                             <button class="btn btn-default"><i class="fa fa-fw fa-times" aria-hidden="true"></i> Cancel</button>
                             <button class="btn btn-primary"><i class="fa fa-fw fa-check" aria-hidden="true"></i> Update Profile</button>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
