@@ -36,6 +36,12 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?=
+        Html::a('Cancel',['index'],[
+            'class' => 'btn btn-default',
+            'id' => 'cancel',
+        ])
+        ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
+use yii\bootstrap\Modal;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\UserSearch */
@@ -79,6 +81,7 @@ $this->registerJsFile('js/user/modernizr.js');
                                 <h6>User Name</h6>
                                 <br>
                                 <p style="font-size: 16px"><?= yii::$app->user->identity->username?></p>
+                                <hr>
                                 <!--<input type="text" class="form-control" id="First_name" placeholder="John" value="John">-->
                                 <br />
                                 <h6>Email Address</h6>
@@ -123,12 +126,13 @@ $this->registerJsFile('js/user/modernizr.js');
                                 <h6>Company</h6>
                                 <br>
                                 <p style="font-size: 16px"><?= yii::$app->user->identity->companyName?></p>
+                                <hr>
                                 <!--<input type="text" class="form-control" id="First_name" placeholder="John" value="John">-->
                                 <br />
-                                <h6>Email Address</h6>
+                                <h6>Wallet Address</h6>
                                 <br />
                                 <!--<label for="Last_name" style="font-size: 20px">Email Address</label>-->
-                                <p style="font-size: 16px"><?= yii::$app->user->identity->email?></p>
+                                <p style="font-size: 16px"><?= yii::$app->user->identity->walletAddress?></p>
                                 <!--<input type="email" class="form-control" id="Last_name" placeholder="Doe" value="Doe">-->
                             </form>
 
@@ -311,8 +315,15 @@ $this->registerJsFile('js/user/modernizr.js');
                                         <option value="31">31</option>
                                     </select>-->
                                 </div>
-                            </form>
                         </div>
+                    <?=
+                    Html::a('Edit Profile',['update'],[
+                        'class' => 'btn btn-default btn-update',
+                        'id' => 'update',
+                        'data-toggle' => 'modal',
+                        'data-target' => '#operate-modal',
+                    ])
+                    ?>
                     </div>
                     <hr>
                     <!--<div class="panel panel-default">
@@ -376,3 +387,28 @@ $this->registerJsFile('js/user/modernizr.js');
         ],
     ]); */?>
 </div>
+
+<?php
+Modal::begin([
+        'id' => 'operate-modal',
+    'header' => '<h4 class="modal-title"></h4>',
+]);
+Modal::end();
+?>
+
+<?php
+$userId = Yii::$app->user->identity->id;
+$requestUpdateUrl = Url::toRoute('update');
+$js = <<<JS
+
+    $('.btn-update').on('click', function() {
+        $('.modal-title').html('profile');
+        $.get('{$requestUpdateUrl}', {id: $userId},
+            function(data) {
+                $('.modal-body').html(data);
+            });
+    });  
+JS;
+$this->registerJs($js);
+?>
+
