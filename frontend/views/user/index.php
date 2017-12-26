@@ -116,17 +116,33 @@ $this->registerJsFile('js/user/modernizr.js');
                         <div class="panel-body">
                             <h3 style="text-align: center">Extend Profile</h3>
                             <br><br>
-                            <p>Visibility of your extended profile:</p>
-                            ...
+                            <!--<p>Visibility of your extended profile:</p>-->
                             <br><br>
                             <form class="form-horizontal">
+                                <!--<label for="First_name" style="font-size: 20px">User Name</label>-->
+                                <h6>Company</h6>
+                                <br>
+                                <p style="font-size: 16px"><?= yii::$app->user->identity->companyName?></p>
+                                <!--<input type="text" class="form-control" id="First_name" placeholder="John" value="John">-->
+                                <br />
+                                <h6>Email Address</h6>
+                                <br />
+                                <!--<label for="Last_name" style="font-size: 20px">Email Address</label>-->
+                                <p style="font-size: 16px"><?= yii::$app->user->identity->email?></p>
+                                <!--<input type="email" class="form-control" id="Last_name" placeholder="Doe" value="Doe">-->
+                            </form>
+
+
+
+
+                            <!--<form class="form-horizontal">
                                 <label>Your bio</label>
                                 <textarea class="form-control" rows="3"></textarea>
                             </form>
                             <br><br>
                             <form class="form-horizontal">
                                 <label for="Your_location">Your location</label>
-                                <input type="text" class="form-control" id="Your_location" placeholder="Fill me out">
+                                <input type="text" class="form-control" id="Your_location" placeholder="Fill me out">-->
                                 <!--<label>Your Birthday</label>
                                 <div class="form-inline" id="birth-date">
                                     <select id="profile_date_year" name="profile[date][year]" class="form-control">
