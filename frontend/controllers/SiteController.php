@@ -218,16 +218,5 @@ class SiteController extends Controller
         $model = Campaign::findOne(['id'=>$id]);
         return $this->render('campaign/view',['model'=>$model]);
     }
-
-    /**
-     * Hello World.
-     *
-     * @param string $message
-     * @return mixed
-     */
-    /*public function actionSay($message = 'Hello')
-    {
-        return $this->render('say', ['message' => $message]);
-    }*/
 }
 

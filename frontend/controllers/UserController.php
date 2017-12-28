@@ -8,6 +8,7 @@ use frontend\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -96,14 +97,41 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $current_image = $model->image;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        /*if ($model->load(Yii::$app->request->post())) {*/
+            /*return $this->redirect(Url::toRoute('index'));*/
+            /*$model->save();
             return $this->redirect(['index', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }*/
+
+        if ($model->load(Yii::$app->request->post())) {
+            //get the instance of the file
+            $imageName = $model->username;
+            $model->file = UploadedFile::getInstance($model,'image');
+            if(!empty($model->file) && $model->file->size !== 0) {
+                $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);
+                $model->image = 'uploads/'.$imageName.'.'.$model->file->extension;
+            }else {
+                $model->image = $current_image;
+            }
+
+
+            /*$model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);*/
+            //save the path in the database column
+            /*$model->image = 'uploads/'.$imageName.'.'.$model->file->extension;*/
+            $model->save();
+            return $this->redirect(['user/index', 'id' => $model->id]);
         } else {
             return $this->renderAjax('update', [
                 'model' => $model,
             ]);
         }
+
     }
 
     /**

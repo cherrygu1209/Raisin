@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\Url;
 use yii\bootstrap\Modal;
+frontend\assets\ProfileAsset::register($this);
+frontend\assets\AppAsset::register($this);
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\UserSearch */
@@ -11,12 +13,15 @@ use yii\bootstrap\Modal;
 
 $this->title = 'User Profile';
 $this->params['breadcrumbs'][] = $this->title;
-$this->registerCssFile('css/user/reset.css');
+/*$this->registerCssFile('css/user/reset.css');
 $this->registerCssFile('css/user/style.css');
 $this->registerCssFile('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
 $this->registerJsFile('js/user/jquery-2.1.4.js');
 $this->registerJsFile('js/user/main.js');
-$this->registerJsFile('js/user/modernizr.js');
+$this->registerJsFile('js/user/modernizr.js');*/
+
+$userId = Yii::$app->user->identity->id;
+$imagePath = '/'.Yii::$app->user->identity->image;
 ?>
 <div class="user-index">
 
@@ -69,12 +74,12 @@ $this->registerJsFile('js/user/modernizr.js');
                 <div class="col-lg-offset-1 col-md-9 col-sm-9 col-xs-9">
                     <div class="panel panel-default">
                         <div style="margin: 20px auto; width: 200px; text-align: center;">
-                            <h1 style="font-size:20px;">My basic profile</h1>
+                            <h1 style="font-size:25px;">Basic Profile</h1>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <h3 style="text-align: center">Account Information</h3>
+                            <h4 style="text-align: center">Account Information</h4>
                             <br><br>
                             <form class="form-horizontal">
                                 <!--<label for="First_name" style="font-size: 20px">User Name</label>-->
@@ -103,21 +108,22 @@ $this->registerJsFile('js/user/modernizr.js');
                     </div>-->
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <h3 style="text-align: center">Your photo</h3>
-                            <br><br>
+                            <h4 style="text-align: center">Your Image</h4>
+                            <br>
                             <div align="center">
                                 <div class="col-lg-12 col-md-12">
-                                    <img class="img-thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px" height="300px">
+                                    <img src="<?php echo Yii::$app->request->baseUrl.$imagePath?>" width="120" height="120" class="img-circle"/>
+                                    <!--<img class="img-thumbnail img-responsive" src="https://lut.im/7JCpw12uUT/mY0Mb78SvSIcjvkf.png" width="300px" height="300px">-->
                                 </div>
-                                <div class="col-lg-12 col-md-12">
+                                <!--<div class="col-lg-12 col-md-12">
                                     <button class="btn btn-primary"><i class="fa fa-upload" aria-hidden="true"></i> Upload a new profile photo!</button>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <h3 style="text-align: center">Extend Profile</h3>
+                            <h4 style="text-align: center">Extend Profile</h4>
                             <br><br>
                             <!--<p>Visibility of your extended profile:</p>-->
                             <br><br>
@@ -135,195 +141,17 @@ $this->registerJsFile('js/user/modernizr.js');
                                 <p style="font-size: 16px"><?= yii::$app->user->identity->walletAddress?></p>
                                 <!--<input type="email" class="form-control" id="Last_name" placeholder="Doe" value="Doe">-->
                             </form>
-
-
-
-
-                            <!--<form class="form-horizontal">
-                                <label>Your bio</label>
-                                <textarea class="form-control" rows="3"></textarea>
-                            </form>
-                            <br><br>
-                            <form class="form-horizontal">
-                                <label for="Your_location">Your location</label>
-                                <input type="text" class="form-control" id="Your_location" placeholder="Fill me out">-->
-                                <!--<label>Your Birthday</label>
-                                <div class="form-inline" id="birth-date">
-                                    <select id="profile_date_year" name="profile[date][year]" class="form-control">
-                                        <option value="" selected="selected">Year</option>
-                                        <option value="2003">2003</option>
-                                        <option value="2002">2002</option>
-                                        <option value="2001">2001</option>
-                                        <option value="2000">2000</option>
-                                        <option value="1999">1999</option>
-                                        <option value="1998">1998</option>
-                                        <option value="1997">1997</option>
-                                        <option value="1996">1996</option>
-                                        <option value="1995">1995</option>
-                                        <option value="1994">1994</option>
-                                        <option value="1993">1993</option>
-                                        <option value="1992">1992</option>
-                                        <option value="1991">1991</option>
-                                        <option value="1990">1990</option>
-                                        <option value="1989">1989</option>
-                                        <option value="1988">1988</option>
-                                        <option value="1987">1987</option>
-                                        <option value="1986">1986</option>
-                                        <option value="1985">1985</option>
-                                        <option value="1984">1984</option>
-                                        <option value="1983">1983</option>
-                                        <option value="1982">1982</option>
-                                        <option value="1981">1981</option>
-                                        <option value="1980">1980</option>
-                                        <option value="1979">1979</option>
-                                        <option value="1978">1978</option>
-                                        <option value="1977">1977</option>
-                                        <option value="1976">1976</option>
-                                        <option value="1975">1975</option>
-                                        <option value="1974">1974</option>
-                                        <option value="1973">1973</option>
-                                        <option value="1972">1972</option>
-                                        <option value="1971">1971</option>
-                                        <option value="1970">1970</option>
-                                        <option value="1969">1969</option>
-                                        <option value="1968">1968</option>
-                                        <option value="1967">1967</option>
-                                        <option value="1966">1966</option>
-                                        <option value="1965">1965</option>
-                                        <option value="1964">1964</option>
-                                        <option value="1963">1963</option>
-                                        <option value="1962">1962</option>
-                                        <option value="1961">1961</option>
-                                        <option value="1960">1960</option>
-                                        <option value="1959">1959</option>
-                                        <option value="1958">1958</option>
-                                        <option value="1957">1957</option>
-                                        <option value="1956">1956</option>
-                                        <option value="1955">1955</option>
-                                        <option value="1954">1954</option>
-                                        <option value="1953">1953</option>
-                                        <option value="1952">1952</option>
-                                        <option value="1951">1951</option>
-                                        <option value="1950">1950</option>
-                                        <option value="1949">1949</option>
-                                        <option value="1948">1948</option>
-                                        <option value="1947">1947</option>
-                                        <option value="1946">1946</option>
-                                        <option value="1945">1945</option>
-                                        <option value="1944">1944</option>
-                                        <option value="1943">1943</option>
-                                        <option value="1942">1942</option>
-                                        <option value="1941">1941</option>
-                                        <option value="1940">1940</option>
-                                        <option value="1939">1939</option>
-                                        <option value="1938">1938</option>
-                                        <option value="1937">1937</option>
-                                        <option value="1936">1936</option>
-                                        <option value="1935">1935</option>
-                                        <option value="1934">1934</option>
-                                        <option value="1933">1933</option>
-                                        <option value="1932">1932</option>
-                                        <option value="1931">1931</option>
-                                        <option value="1930">1930</option>
-                                        <option value="1929">1929</option>
-                                        <option value="1928">1928</option>
-                                        <option value="1927">1927</option>
-                                        <option value="1926">1926</option>
-                                        <option value="1925">1925</option>
-                                        <option value="1924">1924</option>
-                                        <option value="1923">1923</option>
-                                        <option value="1922">1922</option>
-                                        <option value="1921">1921</option>
-                                        <option value="1920">1920</option>
-                                        <option value="1919">1919</option>
-                                        <option value="1918">1918</option>
-                                        <option value="1917">1917</option>
-                                        <option value="1916">1916</option>
-                                        <option value="1915">1915</option>
-                                        <option value="1914">1914</option>
-                                        <option value="1913">1913</option>
-                                        <option value="1912">1912</option>
-                                        <option value="1911">1911</option>
-                                        <option value="1910">1910</option>
-                                        <option value="1909">1909</option>
-                                        <option value="1908">1908</option>
-                                        <option value="1907">1907</option>
-                                        <option value="1906">1906</option>
-                                        <option value="1905">1905</option>
-                                        <option value="1904">1904</option>
-                                        <option value="1903">1903</option>
-                                        <option value="1902">1902</option>
-                                        <option value="1901">1901</option>
-                                        <option value="1900">1900</option>
-                                        <option value="1899">1899</option>
-                                        <option value="1898">1898</option>
-                                        <option value="1897">1897</option>
-                                        <option value="1896">1896</option>
-                                        <option value="1895">1895</option>
-                                        <option value="1894">1894</option>
-                                        <option value="1893">1893</option>
-                                        <option value="1892">1892</option>
-                                        <option value="1891">1891</option>
-                                    </select>
-                                    <select id="profile_date_month" name="profile[date][month]" class="form-control">
-                                        <option value="" selected="selected">Month</option>
-                                        <option value="1">January</option>
-                                        <option value="2">February</option>
-                                        <option value="3">March</option>
-                                        <option value="4">April</option>
-                                        <option value="5">May</option>
-                                        <option value="6">June</option>
-                                        <option value="7">July</option>
-                                        <option value="8">August</option>
-                                        <option value="9">September</option>
-                                        <option value="10">October</option>
-                                        <option value="11">November</option>
-                                        <option value="12">December</option>
-                                    </select>
-                                    <select id="profile_date_day" name="profile[date][day]" class="form-control">
-                                        <option value="" selected="selected">Day</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                        <option value="7">7</option>
-                                        <option value="8">8</option>
-                                        <option value="9">9</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                        <option value="13">13</option>
-                                        <option value="14">14</option>
-                                        <option value="15">15</option>
-                                        <option value="16">16</option>
-                                        <option value="17">17</option>
-                                        <option value="18">18</option>
-                                        <option value="19">19</option>
-                                        <option value="20">20</option>
-                                        <option value="21">21</option>
-                                        <option value="22">22</option>
-                                        <option value="23">23</option>
-                                        <option value="24">24</option>
-                                        <option value="25">25</option>
-                                        <option value="26">26</option>
-                                        <option value="27">27</option>
-                                        <option value="28">28</option>
-                                        <option value="29">29</option>
-                                        <option value="30">30</option>
-                                        <option value="31">31</option>
-                                    </select>-->
-                                </div>
                         </div>
-                    <?=
+                    </div>
+                    <?/*=
                     Html::a('Edit Profile',['update'],[
                         'class' => 'btn btn-default btn-update',
                         'id' => 'update',
                         'data-toggle' => 'modal',
-                        'data-target' => '#operate-modal',
+                        'data-target' => '#edit-profile',
                     ])
-                    ?>
+                    */?>
+                    <?= Html::a('Edit Profile',['update', 'id' => $userId], ['class' => 'btn btn-primary']) ?>
                     </div>
                     <hr>
                     <!--<div class="panel panel-default">
@@ -359,7 +187,7 @@ $this->registerJsFile('js/user/modernizr.js');
 
 
     <!--<h1><?/*= Html::encode($this->title) */?></h1>
-    <?php /*// echo $this->render('_search', ['model' => $searchModel]); */?>
+    <?php /* echo $this->render('_search', ['model' => $searchModel]); */?>
 
     <p>
         <?/*= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) */?>
@@ -374,7 +202,7 @@ $this->registerJsFile('js/user/modernizr.js');
             'username',
             'auth_key',
             'password_hash',
-            'password_reset_token',
+            'password_reset_token',*/
             // 'email:email',
             // 'status',
             // 'created_at',
@@ -383,32 +211,34 @@ $this->registerJsFile('js/user/modernizr.js');
             // 'companyName',
             // 'walletAddress',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            /*['class' => 'yii\grid\ActionColumn'],
         ],
     ]); */?>
 </div>
 
 <?php
+/*$requestUpdateUrl = Url::toRoute('update');
+
 Modal::begin([
-        'id' => 'operate-modal',
+        'id' => 'edit-profile',
     'header' => '<h4 class="modal-title"></h4>',
 ]);
 Modal::end();
-?>
+*/?>
+
 
 <?php
-$userId = Yii::$app->user->identity->id;
-$requestUpdateUrl = Url::toRoute('update');
-$js = <<<JS
-
-    $('.btn-update').on('click', function() {
-        $('.modal-title').html('profile');
-        $.get('{$requestUpdateUrl}', {id: $userId},
-            function(data) {
-                $('.modal-body').html(data);
-            });
-    });  
+/*$js = <<<JS
+$('.btn-update').on('click', function() {
+    $('.modal-title').html('Edit Profile');
+    $.get('{$requestUpdateUrl}', {id: $userId },
+    function(data) {
+        $('.modal-body').html(data);
+      
+    });
+});
 JS;
 $this->registerJs($js);
-?>
+*/?>
+
 
