@@ -213,14 +213,14 @@ $imagePath = '/'.Yii::$app->user->identity->image;
                         <div class="panel-body">
                             <h4 style="text-align: center">Your Image</h4>
                             <br><br>
-                            <div class="col-lg-12 col-md-12">
+                            <div class="col-lg-12 col-md-12" align="center">
                                 <img src="<?php echo Yii::$app->request->baseUrl.$imagePath?>" width="120" height="120" class="img-circle"/>
                                 <br><br>
                             </div>
                             <br><br>
                             <?= $form->field($model, 'image')
                                 ->label(false)
-                                ->fileInput() ?>
+                                ->fileInput(['style' => 'margin-right:-35px;']) ?>
                         </div>
                     </div>
 
