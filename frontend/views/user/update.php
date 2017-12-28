@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' 
 $this->params['breadcrumbs'][] = 'Update';
 
 $userId = Yii::$app->user->identity->id;
-$imagePath = '/'.Yii::$app->user->identity->image;
+
 ?>
 <div class="user-update">
 
@@ -87,7 +87,9 @@ $imagePath = '/'.Yii::$app->user->identity->image;
                                 <nav class="menu">
                                     <ul class="clearfix">
                                         <li>
-                                            <a href="#"><img src="<?php echo Yii::$app->request->baseUrl.$imagePath?>" width="40" height="40" class="img-circle"/></a>
+                                            <a href="#"><img src="<?php
+                                                $imagePath = '/'.Yii::$app->user->identity->image;
+                                                echo Yii::$app->request->baseUrl.$imagePath?>" width="40" height="40" class="img-circle"/></a>
 
                                             <ul class="sub-menu">
                                                 <!--<img src="<?php /*echo Yii::$app->request->baseUrl.$imagePath*/?>" width="30" height="30" class="img-circle" align="center"/>-->
@@ -98,7 +100,7 @@ $imagePath = '/'.Yii::$app->user->identity->image;
                                                 <li><?= Html::a(
                                                         'Logout',
                                                         ['/site/logout'],
-                                                        ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
+                                                        ['data-method' => 'post', 'class' => 'btn btn-default btn-primary']
                                                     ) ?></li>
                                             </ul>
                                         </li>

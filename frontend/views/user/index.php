@@ -21,7 +21,7 @@ $this->registerJsFile('js/user/main.js');
 $this->registerJsFile('js/user/modernizr.js');*/
 
 $userId = Yii::$app->user->identity->id;
-$imagePath = '/'.Yii::$app->user->identity->image;
+
 /*getimagesize(Yii::$app->basePath . $imagePath);*/
 ?>
 <div class="user-index">
@@ -113,7 +113,9 @@ $imagePath = '/'.Yii::$app->user->identity->image;
                             <br>
                             <div align="center">
                                 <div class="col-lg-12 col-md-12">
-                                    <img src="<?php echo Yii::$app->request->baseUrl.$imagePath?>" width="120" height="120" class="img-circle"/>
+                                    <img src="<?php
+                                    $imagePath = '/'.Yii::$app->user->identity->image;
+                                    echo Yii::$app->request->baseUrl.$imagePath?>" width="120" height="120" class="img-circle"/>
                                 </div>
                                 <!--<div class="col-lg-12 col-md-12">
                                     <button class="btn btn-primary"><i class="fa fa-upload" aria-hidden="true"></i> Upload a new profile photo!</button>
