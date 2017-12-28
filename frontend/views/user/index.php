@@ -44,7 +44,7 @@ $userId = Yii::$app->user->identity->id;
                 <!--<li><a href="#0" class="active" class="fa fa-home"><span>Profile</span></a></li>-->
                 <li><?= Html::a(' Portfolio &nbsp&nbsp&nbsp<i class="fa fa-star-o"></i>',['site/index']) ?></li>
                 <li><?= Html::a(' Campaign &nbsp&nbsp&nbsp<i class="fa fa-shopping-bag"></i>',['site/index']) ?></li>
-                <li><?= Html::a(' Wallet &nbsp&nbsp&nbsp<i class="fa fa-envelope"></i>',['site/index']) ?></li>
+                <li><?= Html::a(' Wallet &nbsp&nbsp&nbsp<i class="fa fa-btc"></i>',['site/index']) ?></li>
                 <li><?= Html::a(' Notice &nbsp&nbsp&nbsp<i class="fa fa-envelope"></i>',['site/index']) ?></li>
                 <!--<li><a href="#0"><span>Portfolio</span></a></li>
                 <li><a href="#0"><span>Services</span></a></li>

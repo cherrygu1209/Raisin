@@ -138,7 +138,7 @@
     color: #000000;
 }
 
-.menu li:hover > a, .menu .current-item > a {
+.menu li:click > a, .menu .current-item > a {
     text-decoration:none;
     /*color:#be5b70;*/
     color: #000000;
@@ -159,7 +159,7 @@
     /*text-shadow:0px 1px 0px rgba(0,0,0,0.4);*/
 }
 
-.menu > ul > li:hover > a, .menu > ul > .current-item > a {
+.menu > ul > li:click > a, .menu > ul > .current-item > a {
     /*background:#2e2728;*/
 }
 
@@ -194,7 +194,7 @@
     display:block;
 }
 
-.sub-menu li a:hover, .sub-menu .current-item a {
+.sub-menu li a:click, .sub-menu .current-item a {
     background: #cccccc;
 }
 
