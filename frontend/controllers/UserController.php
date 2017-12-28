@@ -114,8 +114,8 @@ class UserController extends Controller
             $imageName = $model->username;
             $model->file = UploadedFile::getInstance($model,'image');
             if(!empty($model->file) && $model->file->size !== 0) {
-                $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension);
-                $model->image = 'uploads/'.$imageName.'.'.$model->file->extension;
+                $model->file->saveAs('uploads/user/'.$imageName.'.'.$model->file->extension);
+                $model->image = 'uploads/user/'.$imageName.'.'.$model->file->extension;
             }else {
                 $model->image = $current_image;
             }

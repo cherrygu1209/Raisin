@@ -220,7 +220,7 @@ $imagePath = '/'.Yii::$app->user->identity->image;
                             <br><br>
                             <?= $form->field($model, 'image')
                                 ->label(false)
-                                ->fileInput(['style' => 'margin-right:-35px;']) ?>
+                                ->fileInput() ?>
                         </div>
                     </div>
 
