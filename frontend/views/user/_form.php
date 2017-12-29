@@ -12,7 +12,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-    <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'username')
+        ->label(false)
+        ->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'auth_key')->textInput(['maxlength' => true]) ?>
 
