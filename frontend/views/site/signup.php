@@ -30,21 +30,19 @@ frontend\assets\SignupAsset::register($this);
                         <br>
                         <div class="group">
                             <?= $form->field($model, 'username')
+                                ->hint('at least 2 digits.', ['style' => 'font-size:12px, color:#ffffff'])
                                 ->textInput(['autofocus' => true])?>
                         </div>
-                        <br>
                         <div class="group">
                             <?= $form->field($model, 'email') ?>
                         </div>
-                        <br>
                         <div class="group">
-                            <?= $form->field($model, 'password')->passwordInput() ?>
+                            <?= $form->field($model, 'password')->passwordInput()
+                                ->hint('at least 6 digits.', ['style' => 'font-size:12px, color:#ffffff'])?>
                         </div>
-                        <br>
                         <div class="group">
                             <?= $form->field($model, 'password_repeat')->passwordInput() ?>
                         </div>
-                        <br>
                         <div class="form-group">
                             <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
                             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp

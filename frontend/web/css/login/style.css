@@ -13,7 +13,7 @@ a{color:inherit;text-decoration:none}
 	width:100%;
 	margin:auto;
 	max-width:525px;
-	min-height:750px;
+	min-height:600px;
 	height:auto;
 	position:relative;
 	background:url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg) no-repeat center;
@@ -65,7 +65,7 @@ a{color:inherit;text-decoration:none}
 	border-color:#1161ee;
 }
 .login-form{
-	min-height:555px;
+	min-height:345px;
 	position:relative;
 	-webkit-perspective:1000px;
 	        perspective:1000px;

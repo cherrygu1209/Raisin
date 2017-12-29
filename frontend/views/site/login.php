@@ -10,7 +10,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 frontend\assets\AppAsset::register($this);
-frontend\assets\SignupAsset::register($this);
+frontend\assets\LoginAsset::register($this);
 ?>
 <div class="site-login">
     <body>
@@ -25,7 +25,8 @@ frontend\assets\SignupAsset::register($this);
                 <div class="sign-in-htm">
                     <br>
                     <div class="group">
-                        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+                        <?= $form->field($model, 'username')
+                            ->textInput(['autofocus' => true]) ?>
                     </div>
                     <br>
                     <div class="group">
