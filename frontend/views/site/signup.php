@@ -49,7 +49,7 @@ frontend\assets\SignupAsset::register($this);
 
                         <div class="group">
                             <?= $form->field($model, 'verifyCode')
-                                ->hint('Click for refresh')
+                                ->hint('Click for refresh',['style' => 'font-size:12px, color:#ffffff'])
                                 ->widget(Captcha::className(), [
                                 'template' => '<div class="row"><div class="col-lg-6">{image}</div><div class="col-lg-6">{input}</div></div>',
                             ]) ?>

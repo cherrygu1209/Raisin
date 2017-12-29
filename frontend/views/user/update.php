@@ -96,11 +96,11 @@ $userId = Yii::$app->user->identity->id;
                                                 <li><?= Html::a('Profile', ['user/index'])?></li>
                                                 <li><a href="#">Portfolio</a></li>
                                                 <li><a href="#">Campaign</a></li>
-                                                <li><a href="#">My Wallet</a></li>
+                                                <li><?= Html::a('My Wallet', ['wallet/index'])?></li>
                                                 <li><?= Html::a(
                                                         'Logout',
                                                         ['/site/logout'],
-                                                        ['data-method' => 'post', 'class' => 'btn btn-default btn-primary']
+                                                        ['data-method' => 'post', 'class' => 'btn btn-default btn-danger']
                                                     ) ?></li>
                                             </ul>
                                         </li>

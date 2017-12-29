@@ -80,7 +80,7 @@ use yii\helpers\Html;
                               <li><?= Html::a(
                                       'Logout',
                                       ['/site/logout'],
-                                      ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
+                                      ['data-method' => 'post', 'class' => 'btn btn-default btn-danger']
                                   ) ?></li>
                           </ul>
                       </li>
