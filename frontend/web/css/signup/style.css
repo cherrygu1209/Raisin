@@ -152,6 +152,20 @@ a{color:inherit;text-decoration:none}
 	-webkit-transform:rotate(0);
 	        transform:rotate(0);
 }
+.login-form .order {
+	height: 60px;
+	line-height: 60px;
+	text-align: center;
+}
+.login-form .order .line {
+	display: inline-block;
+	width: 150px;
+	border-top: 1px solid #ffffff ;
+}
+.login-form .order .txt {
+	color: #ffffff;
+	vertical-align: middle;
+}
 
 .hr{
 	height:2px;

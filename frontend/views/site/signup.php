@@ -43,12 +43,19 @@ frontend\assets\SignupAsset::register($this);
                         <br>
                         <div class="form-group">
                             <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?= Html::a('Already a Member?',['site/login'])?>
                         </div>
-                        <div class="hr"></div>
+                        <div class="order">
+                            <span style="white-space:pre;">  </span><span class="line"></span>
+                            <span style="white-space:pre;">  </span><span class="txt">Or</span>
+                            <span style="white-space:pre;">  </span><span class="line"></span>
+                        </div>
                         <?php ActiveForm::end(); ?>
-                        <div class="foot-lnk">
-                            <?= Html::a('Already a Member?',['site/login'])?>
-                        </div>
+                        <?= Html::a('<i class="fa fa-facebook fa-2x"></i>',['site/index'],['style' => 'margin-left:70px'])?>
+                        <?= Html::a('<i class="fa fa-twitter fa-2x"></i>',['site/index'],['style' => 'margin-left:90px'])?>
+                        <?= Html::a('<i class="fa fa-instagram fa-2x"></i>',['site/index'],['style' => 'margin-left:80px'])?>
                     </div>
                 </div>
             </div>

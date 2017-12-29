@@ -44,7 +44,11 @@ frontend\assets\SignupAsset::register($this);
                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?= Html::a('Forgot Password?',['site/request-password-reset'])?>
                     </div>
 
-                    <div class="hr"></div>
+                    <div class="order">
+                        <span style="white-space:pre;">  </span><span class="line"></span>
+                        <span style="white-space:pre;">  </span><span class="txt">Or</span>
+                        <span style="white-space:pre;">  </span><span class="line"></span>
+                    </div>
                     <?php ActiveForm::end(); ?>
                     <div class="foot-lnk">
                         <?= Html::a('Do not have an account?',['site/signup'])?>
