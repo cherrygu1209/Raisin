@@ -13,6 +13,7 @@ class SignupForm extends Model
     public $email;
     public $password;
     public $password_repeat;
+    public $verifyCode;
 
 
     /**
@@ -31,6 +32,8 @@ class SignupForm extends Model
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+
+            ['verifyCode','captcha'],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6, 'message' => 'Password must at least contain 6 digits.'],
@@ -58,5 +61,15 @@ class SignupForm extends Model
         $user->generateAuthKey();
         
         return $user->save() ? $user : null;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'verifyCode' => 'verifyCode',
+        ];
     }
 }
