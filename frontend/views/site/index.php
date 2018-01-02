@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 use frontend\models\Campaign;
 frontend\assets\AppAsset::register($this);
+use common\widgets\Alert;
 /* @var $this yii\web\View */
 
 $this->title = 'Raisin';
@@ -33,6 +34,11 @@ $this->registerJsFile('js/clean-blog.min.js');*/
             </div>
         </div>
     </header>
+
+    <div class="panel-body">
+        <?= Alert::widget()  ?>
+        <?= Yii::$app->session->getFlash('success')?>
+    </div>
 
     <!-- Main Content -->
     <div class="container">

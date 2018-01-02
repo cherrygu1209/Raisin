@@ -75,7 +75,7 @@ use yii\helpers\Html;
                               <!--<img src="<?php /*echo Yii::$app->request->baseUrl.$imagePath*/?>" width="30" height="30" class="img-circle" align="center"/>-->
                               <li><?= Html::a('Profile', ['user/index'])?></li>
                               <li><a href="#">Portfolio</a></li>
-                              <li><a href="#">Campaign</a></li>
+                              <li><?= Html::a('Campaign', ['campaign/index'])?></li>
                               <li><?= Html::a('My Wallet',['wallet/index'])?></li>
                               <li><?= Html::a(
                                       'Logout',
