@@ -19,7 +19,7 @@ class FaqSearch extends Faq
     {
         return [
             [['id'], 'integer'],
-            [['question', 'answer'], 'safe'],
+            [['question', 'answer','type'], 'safe'],
         ];
     }
 
@@ -63,7 +63,8 @@ class FaqSearch extends Faq
         ]);
 
         $query->andFilterWhere(['like', 'question', $this->question])
-            ->andFilterWhere(['like', 'answer', $this->answer]);
+            ->andFilterWhere(['like', 'answer', $this->answer])
+            ->andFilterWhere(['like', 'type', $this->type]);
 
         return $dataProvider;
     }

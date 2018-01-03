@@ -16,6 +16,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'answer')->textarea(['rows' => 6]) ?>
 
+    <?= $form->field($model, 'type')->dropDownList(['basic'=>'basic','back'=>'back project','project'=>'start project'], ['prompt'=>'select','style'=>'width:200px']) ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

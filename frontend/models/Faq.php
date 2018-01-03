@@ -10,6 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $question
  * @property string $answer
+ * @property string $type
  */
 class Faq extends \yii\db\ActiveRecord
 {
@@ -27,8 +28,8 @@ class Faq extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['question', 'answer'], 'required'],
-            [['question', 'answer'], 'string'],
+            [['question', 'answer','type'], 'required'],
+            [['question', 'answer','type'], 'string'],
         ];
     }
 
@@ -41,6 +42,7 @@ class Faq extends \yii\db\ActiveRecord
             'id' => 'ID',
             'question' => 'Question',
             'answer' => 'Answer',
+            'type' => 'Type',
         ];
     }
 }

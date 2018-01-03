@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use frontend\models\Faq;
 
 /* @var $this yii\web\View */
 /* @var $searchModel frontend\models\FaqSearch */
@@ -37,11 +38,34 @@ frontend\assets\FaqAsset::register($this);
 
         <div class="cd-faq-items">
             <ul id="basics" class="cd-faq-group">
+                <?php
+                $str1 = '';
+                $str2 = '';
+                $rows1 = (new \yii\db\Query())
+                    ->select('question')
+                    ->where(['id' => 1])
+                    ->from('faq')
+                    ->all();
+                $rows2 = (new \yii\db\Query())
+                    ->select('answer')
+                    ->where(['id' => 1])
+                    ->from('faq')
+                    ->all();
+                foreach ($rows1 as $key => $val)
+                {
+                    $str1 = $rows1[$key]['question'];
+                }
+                foreach ($rows2 as $key => $val)
+                {
+                    $str2 = $rows2[$key]['answer'];
+                }
+                ?>
                 <li class="cd-faq-title"><h2>Basics</h2></li>
                 <li>
-                    <a class="cd-faq-trigger" href="#0">How do I change my password?</a>
+                    <?= Html::a($str1,['#0'],['class' => 'cd-faq-trigger'])?>
+                    <!--<a class="cd-faq-trigger" href="#0"></a>-->
                     <div class="cd-faq-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae quidem blanditiis delectus corporis, possimus officia sint sequi ex tenetur id impedit est pariatur iure animi non a ratione reiciendis nihil sed consequatur atque repellendus fugit perspiciatis rerum et. Dolorum consequuntur fugit deleniti, soluta fuga nobis. Ducimus blanditiis velit sit iste delectus obcaecati debitis omnis, assumenda accusamus cumque perferendis eos aut quidem! Aut, totam rerum, cupiditate quae aperiam voluptas rem inventore quas, ex maxime culpa nam soluta labore at amet nihil laborum? Explicabo numquam, sit fugit, voluptatem autem atque quis quam voluptate fugiat earum rem hic, reprehenderit quaerat tempore at. Aperiam.</p>
+                        <p><?php echo $str2 ?></p>
                     </div> <!-- cd-faq-content -->
                 </li>
 
