@@ -64,23 +64,38 @@ class EmailController extends Controller
      */
     public function actionCreate()
     {
+        $str = '';
+        $aa = array();
+        $rows = (new \yii\db\Query())
+            ->select(['email'])
+            ->from('user')
+            ->all();
+
+
+        foreach ($rows as $key => $val)
+        {
+            $aa = $rows[$key]['email'];
+            //$str = "'" . $rows[$key]['email'] . "'" . ',' . $str;
+            //$str = $str . "," . $rows[$key]['email'];
+        }
+
         $model = new Email();
 
         if ($model->load(Yii::$app->request->post()))
         {
             //upload the attachment
-            $model->attachment = UploadedFile::getInstance($model,'attachment');
+            /*$model->attachment = UploadedFile::getInstance($model,'attachment');*/
 
-            if($model->attachment)
+            /*if($model->attachment)
             {
                 $time = time();
                 $model->attachment->saveAs('attachments/'.$time.'.'.$model->attachment->extension);
                 $model->attachment='attachments/'.$time.'.'.$model->attachment->extension;
-            }
-            if($model->attachment)
+            }*/
+            /*if($model->attachment)
             {
                 $value = Yii::$app->mailer->compose()
-                    ->setFrom([ 'cherry1209@live.cn' => 'gugugu'])
+                    ->setFrom([ array('cherrygu1209@gmail.com','cherrygu94@gamil.com') => 'GoRaisin'])
                     ->setTo($model->receiver_address)
                     ->setSubject($model->subject)
                     ->setHtmlBody($model->content)
@@ -88,13 +103,24 @@ class EmailController extends Controller
                     ->send();
             }else{
                 $value = Yii::$app->mailer->compose()
-                    ->setFrom([ 'cherry1209@live.cn' => 'gugugu'])
+                    ->setFrom([ array('cherrygu1209@gmail.com,cherrygu94@gmail.com') => 'GoRaisin'])
                     ->setTo($model->receiver_address)
                     ->setSubject($model->subject)
                     ->setHtmlBody($model->content)
                     ->send();
-            }
+            }*/
+
+            $value = Yii::$app->mailer->compose()
+                ->setFrom([ 'cherry@webpuppies.com.sg' => 'GoRaisin'])
+                ->setTo($aa)
+                ->setSubject($model->subject)
+                ->setHtmlBody($model->content)
+                ->send();
             $model->save();
+            /*print_r($userEmail);
+            $string=implode(' ',$userEmail);
+            echo $string;
+            die();*/
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
