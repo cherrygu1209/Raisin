@@ -815,3 +815,10 @@ keyframes
     transform: translateX(0);
   }
 }
+
+.ico, .fa {
+  color: #ffffff;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}

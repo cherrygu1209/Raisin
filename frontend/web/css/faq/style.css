@@ -100,6 +100,28 @@ header h1 {
 }*/
 
 
+.page-title {
+    position: absolute;
+    text-align: center;
+    left: 47%;
+    top: 10%;
+    color: #000000;
+
+}
+
+
+.search-box {
+    position: absolute;
+    left: 30%;
+    top: 15%;
+    width:580px;
+    height:100px;
+    /*margin-left:-100px;*/
+    /*margin-top:-50px;*/
+
+}
+
+
 
 .cd-close-panel {
     position: fixed;

@@ -15,6 +15,7 @@ class FaqAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+        'vendor/font-awesome/css/font-awesome.min.css',
         'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700',
         'css/faq/style.css',
     ];

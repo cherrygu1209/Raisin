@@ -15,7 +15,15 @@ frontend\assets\FaqAsset::register($this);
 <div class="faq-index">
 
 
+    <h2 class="page-title">FAQ</h2>
     <br><br><br><br>
+    <div class="search-box">
+        <i class="fa fa-search fa-1x" style="color: black"></i><?php echo $this->render('_search', ['model' => $searchModel]); ?>
+    </div>
+    <!--<hr style=" height:1px;border:none;border-top:1px solid #185598;" />-->
+
+
+    <br><br><br>
 
     <section class="cd-faq">
         <ul class="cd-faq-categories">
