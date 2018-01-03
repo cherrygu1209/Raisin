@@ -49,7 +49,7 @@ use yii\helpers\Html;
               <a class="nav-link" href="<?=Url::to(['/site/index'])?>">Roadmap</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?=Url::to(['/site/index'])?>">FAQ</a>
+              <a class="nav-link" href="<?=Url::to(['/faq/index'])?>">FAQ</a>
             </li>
             <?php if(Yii::$app->user->isGuest){ ?>
             <li class="nav-item">
