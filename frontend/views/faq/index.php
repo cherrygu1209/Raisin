@@ -240,36 +240,12 @@ frontend\assets\FaqAsset::register($this);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <!--<h1><?/*= Html::encode($this->title) */?></h1>
 
     <p>
-        <?= Html::a('Create Faq', ['create'], ['class' => 'btn btn-success']) ?>
+        <?/*= Html::a('Create Faq', ['create'], ['class' => 'btn btn-success']) */?>
     </p>
-    <?= GridView::widget([
+    --><?/*= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -281,5 +257,5 @@ frontend\assets\FaqAsset::register($this);
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]); */?>
 </div>
