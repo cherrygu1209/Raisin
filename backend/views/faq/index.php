@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
-    <h3 style="color: black">Category List</h3>
+    <h3 style="color: black">FAQ List</h3>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         /*'filterModel' => $searchModel,*/

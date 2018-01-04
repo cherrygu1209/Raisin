@@ -25,6 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <!--<p>
         <?/*= Html::a('Create Frontend User', ['create'], ['class' => 'btn btn-success']) */?>
     </p>-->
+    <h3 style="color: black">Frontend User List</h3>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         /*'filterModel' => $searchModel,*/

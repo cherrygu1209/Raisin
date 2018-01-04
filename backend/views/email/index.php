@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
     <hr style=" height:1px;border:none;border-top:1px solid #185598;" />
 
-    <h3 style="color: black">Category List</h3>
+    <h3 style="color: black">Email List</h3>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         /*'filterModel' => $searchModel,*/

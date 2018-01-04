@@ -43,7 +43,7 @@ use yii\helpers\Html;
               <a class="nav-link" href="<?=Url::to(['/site/index'])?>">Whitepaper</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?=Url::to(['/site/about'])?>">Team</a>
+              <a class="nav-link" href="<?=Url::to(['/team/index'])?>">Team</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="<?=Url::to(['/roadmap/index'])?>">Roadmap</a>
