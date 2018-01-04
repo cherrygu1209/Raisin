@@ -8,11 +8,13 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use frontend\models\Campaign;
+use frontend\models\Fund;
 use frontend\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use yii\data\ActiveDataProvider;
 
 /**
  * Site controller
@@ -73,8 +75,26 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = Campaign::find()->all();
-        return $this->render('index',['model'=>$model]);
+          $model = Campaign::find()->all();
+          $fund = new Fund();
+          if(Yii::$app->request->post()){
+            $fund->fund_user_id = Yii::$app->user->identity->getId();
+            $fund->save();
+            return $this->render('index',['model'=>$model]);
+              
+          }else{
+               return $this->render('index',['model'=>$model]);
+          }
+          
+//        $user_id = Yii::$app->user->identity->id;
+//        $model = new ActiveDataProvider([
+//                    'query'=> Campaign::find()->where(['c_author'=>$user_id]),
+//                    'pagination'=>[
+//                        'pageSize'=>5
+//                    ]
+//                ]);
+        
+       
     }
 
     /**
@@ -218,7 +238,29 @@ class SiteController extends Controller
         $model = Campaign::findOne(['id'=>$id]);
         return $this->render('campaign/view',['model'=>$model]);
     }
+    
+/*    public function actionFund()
+    {
+        $model = new Fund();
+        
+        if ($model->load(Yii::$app->request->post())) {
+            
+            //$model->fund_c_id = $id;
+            $model->fund_user_id = Yii::$app->user->identity->getId();
+            $model->save();
+            return $this->redirect(['view', 'id' => $model->fund_id]);
+        } else {
+            $searchModel = new FundSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+           
+        }
+    }
+*/
     /**
      * Hello World.
      *

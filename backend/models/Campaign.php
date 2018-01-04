@@ -22,7 +22,7 @@ class Campaign extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'campaign';
+        return 'campaign_backend';
     }
 
     /**

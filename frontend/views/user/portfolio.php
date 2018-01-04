@@ -5,6 +5,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+use yii\helpers\Html;
+use yii\helpers\Url;
+use kartik\sidenav\SideNav;
+use yii\widgets;
+use kartik\tabs\TabsX;
+use frontend\models\Campaign;
+use yii\widgets\ListView;
 ?>
 <div class="site-about">
     <body>
@@ -26,9 +33,47 @@
     <!-- Main Content -->
     <div class="campaign-update">
         <div class="container">
-    <h1></h1>
+        <h1></h1>
+<?php 
 
+    echo ListView::widget([
+        'dataProvider'=>$model,
+        'itemView'=>'created_campaigns_view'
+    ]);
+//    //$model = new Campaign();
+//    echo TabsX::widget([
+//    'position' => TabsX::POS_ABOVE,
+//    'align' => TabsX::ALIGN_LEFT,
+//    'items' => [
+//        [
+//            'label' => 'Created Campaigns',
+//            'content' => $this->render('created_campaigns',['model' => $model]),
+//            'headerOptions' => ['style'=>'font-weight:bold'],
+//            'active' => true
+//        ],
+//        [
+//            'label' => 'Supported Campaigns',
+//            'content' => 'Anim pariatur cliche...',
+//            'headerOptions' => ['style'=>'font-weight:bold'],
+//            'options' => ['id' => 'myveryownID'],
+//        ],
+//        [
+//            'label' => 'Dropdown',
+//            'items' => [
+//                 [
+//                     'label' => 'DropdownA',
+//                     'content' => 'DropdownA, Anim pariatur cliche...',
+//                 ],
+//                 [
+//                     'label' => 'DropdownB',
+//                     'content' => 'DropdownB, Anim pariatur cliche...',
+//                 ],
+//            ],
+//        ],
+//    ],
+//]);
 
+?>
         </div>
     </div>
     <hr>

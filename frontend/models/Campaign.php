@@ -59,7 +59,7 @@ class Campaign extends \yii\db\ActiveRecord
     {
         return [
             'c_title' => 'Campaign Title',
-            'file' => 'Campaign Image',
+            'file' => '',
             'c_description' => 'Short Description',
             'c_start_date' => 'Start Date',
             'c_end_date' => 'End Date',
