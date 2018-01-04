@@ -66,7 +66,7 @@ $userId = Yii::$app->user->identity->id;
                                 <a class="nav-link" href="<?=Url::to(['/site/about'])?>">Team</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="<?=Url::to(['/site/index'])?>">Roadmap</a>
+                                <a class="nav-link" href="<?=Url::to(['/roadmap/index'])?>">Roadmap</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="<?=Url::to(['/faq/index'])?>">FAQ</a>

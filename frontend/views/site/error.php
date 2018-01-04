@@ -6,13 +6,14 @@
 /* @var $exception Exception */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 $this->title = $name;
 frontend\assets\PageNotFoundAsset::register($this);
 frontend\assets\AppAsset::register($this);
+
 ?>
 <div class="site-error">
-
     <div id="wrapper">
         <div class="container">
             <div class="row">
@@ -23,7 +24,10 @@ frontend\assets\AppAsset::register($this);
                     <h1 class="subtitle"><?= Html::encode($this->title) ?></h1>
                     <br />
                     <h2 class="subtitle"><?= nl2br(Html::encode($message)) ?></h2>
-                    <br/>
+                    <br/><br/>
+                    <a class="btn-homepage" href="<?=Url::to(['/site/index'])?>"><i class="fa fa-home"></i>&nbspGo Homepage</a>
+                    <!--<a class="btn-homepage" href="<?/*=Url::to(Yii::$app->request->referrer)*/?>"><i class="fa fa-home"></i>Go back to previous page</a>-->
+                    <br><br><br>
                     <h2 class="subtitle"> Any Problems? Contact Us!</h2>
                     <br/>
                 </div>
