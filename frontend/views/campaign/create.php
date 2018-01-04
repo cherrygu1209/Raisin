@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
    
 <!-- Page Header -->
-    <header class="masthead" style="background-image:url('img/start_campaign.jpg')">
+    <header class="masthead" style="background-image:url('/img/start_campaign.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
@@ -104,7 +104,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 
 	],
 	
-	'complete_content' => "You are done!", // Optional final screen
+	//'complete_content' => "You are done!", // Optional final screen
 	'start_step' => 1, // Optional, start with a specific step
 ];
 ?>

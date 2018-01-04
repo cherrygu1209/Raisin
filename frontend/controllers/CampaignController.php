@@ -57,6 +57,13 @@ class CampaignController extends Controller
             'model' => $this->findModel($id),
         ]);
     }
+    
+    public function actionFund($id)
+    {
+        return $this->render('fund', [
+            'model' => $this->findModel($id),
+        ]);
+    }
 
     /**
      * Creates a new Campaign model.
@@ -136,4 +143,5 @@ class CampaignController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+    
 }
