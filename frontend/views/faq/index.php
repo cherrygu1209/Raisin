@@ -29,7 +29,7 @@ frontend\assets\FaqAsset::register($this);
     <section class="cd-faq">
         <ul class="cd-faq-categories">
             <li><a class="selected" href="#basics">Basics</a></li>
-            <li><a href="#mobile">Mobile</a></li>
+            <li><a href="#mobile">Back Project</a></li>
             <li><a href="#account">Account</a></li>
             <li><a href="#payments">Payments</a></li>
             <li><a href="#privacy">Privacy</a></li>
@@ -92,11 +92,34 @@ frontend\assets\FaqAsset::register($this);
             </ul> <!-- cd-faq-group -->
 
             <ul id="mobile" class="cd-faq-group">
-                <li class="cd-faq-title"><h2>Mobile</h2></li>
+                <?php
+                $str1 = '';
+                $str2 = '';
+                $rows1 = (new \yii\db\Query())
+                    ->select('question')
+                    ->where(['id' => 5])
+                    ->from('faq')
+                    ->all();
+                $rows2 = (new \yii\db\Query())
+                    ->select('answer')
+                    ->where(['id' => 5])
+                    ->from('faq')
+                    ->all();
+                foreach ($rows1 as $key => $val)
+                {
+                    $str1 = $rows1[$key]['question'];
+                }
+                foreach ($rows2 as $key => $val)
+                {
+                    $str2 = $rows2[$key]['answer'];
+                }
+                ?>
+                <li class="cd-faq-title"><h2>Back Project</h2></li>
                 <li>
-                    <a class="cd-faq-trigger" href="#0">How does syncing work?</a>
+                    <?= Html::a($str1,['#0'],['class' => 'cd-faq-trigger'])?>
+                    <!--<a class="cd-faq-trigger" href="#0">How does syncing work?</a>-->
                     <div class="cd-faq-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quidem delectus rerum eligendi mollitia, repudiandae quae beatae. Et repellat quam atque corrupti iusto architecto impedit explicabo repudiandae qui similique aut iure ipsum quis inventore nulla error aliquid alias quia dolorem dolore, odio excepturi veniam odit veritatis. Quo iure magnam, et cum. Laudantium, eaque non? Tempore nihil corporis cumque dolor ipsum accusamus sapiente aliquid quis ea assumenda deserunt praesentium voluptatibus, accusantium a mollitia necessitatibus nostrum voluptatem numquam modi ab, sint rem.</p>
+                        <p><? echo $str2 ?></p>
                     </div> <!-- cd-faq-content -->
                 </li>
 
