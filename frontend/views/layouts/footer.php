@@ -37,7 +37,7 @@ use yii\helpers\Url;
               <li class="list-inline-item">
                 <a href="#">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?=Url::to(['#'])?>">Team</a>
+                        <a class="nav-link" href="<?=Url::to(['team/index'])?>">Team</a>
                     </li>
                 </a>
               </li>
