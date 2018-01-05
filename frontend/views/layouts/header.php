@@ -3,7 +3,8 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\helpers\Url;
 use yii\helpers\Html;
-//$imagePath = '/'.Yii::$app->user->identity->image;
+
+/*$imagePath = '/'.Yii::$app->user->identity->image;*/
 ?>
 <header class="main-header">
 
@@ -42,13 +43,13 @@ use yii\helpers\Html;
               <a class="nav-link" href="<?=Url::to(['/site/index'])?>">Whitepaper</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?=Url::to(['/site/about'])?>">Team</a>
+              <a class="nav-link" href="<?=Url::to(['/team/index'])?>">Team</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?=Url::to(['/site/index'])?>">Roadmap</a>
+              <a class="nav-link" href="<?=Url::to(['/roadmap/index'])?>">Roadmap</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?=Url::to(['/site/index'])?>">FAQ</a>
+              <a class="nav-link" href="<?=Url::to(['/faq/index'])?>">FAQ</a>
             </li>
             <?php if(Yii::$app->user->isGuest){ ?>
             <li class="nav-item">
@@ -66,17 +67,21 @@ use yii\helpers\Html;
               <nav class="menu">
                   <ul class="clearfix">
                       <li>
-                          <a href="#"><?= Yii::$app->user->identity->username?></a>
+                          <a href="#"><img src="<?php
+                              $imagePath = '/'.Yii::$app->user->identity->image;
+                              echo Yii::$app->request->baseUrl.$imagePath?>" width="40" height="40" class="img-circle"/></a>
 
                           <ul class="sub-menu">
                               <!--<img src="<?php /*echo Yii::$app->request->baseUrl.$imagePath*/?>" width="30" height="30" class="img-circle" align="center"/>-->
                               <li><?= Html::a('Profile', ['user/index'])?></li>
                               <li><?= Html::a('My Portfolio', ['user/portfolio'])?></li>
-                              <li><a href="#">My Wallet</a></li>
+                              <li><?= Html::a('Campaign', ['campaign/index'])?></li>
+                              <li><?= Html::a('My Wallet',['wallet/index'])?></li>
+                              
                               <li><?= Html::a(
                                       'Logout',
                                       ['/site/logout'],
-                                      ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
+                                      ['data-method' => 'post', 'class' => 'btn btn-default btn-danger']
                                   ) ?></li>
                           </ul>
                       </li>

@@ -54,7 +54,7 @@ $this->title = 'Raisin Backend';
                                             <h1>Bio Graph</h1>
                                             <div class="row">
                                                 <div class="bio-row">
-                                                    <p><span>User Name </span><?= yii::$app->user->identity->username?> </p>
+                                                    <p><span>User Name </span><?= yii::$app->user->identity->username?></p>
                                                 </div>
                                                 <div class="bio-row">
                                                     <p><span>Email </span><?= yii::$app->user->identity->email?></p>
