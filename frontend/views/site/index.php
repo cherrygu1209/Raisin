@@ -4,6 +4,10 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use frontend\models\Campaign;
+frontend\assets\AppAsset::register($this);
+use common\widgets\Alert;
+/* @var $this yii\web\View */
+/*$this->registerCssFile('vendor/bootstrap/css/bootstrap.min.css');
 use yii\widgets\ListView;
 use yii\bootstrap\Modal;
 use yii\widgets\ActiveForm;
@@ -13,7 +17,7 @@ use frontend\models\Fund;
 //frontend\assets\CampaignAsset::register($this);
 
 $this->title = 'GoRaisin';
-$this->registerCssFile('vendor/bootstrap/css/bootstrap.min.css');
+/*$this->registerCssFile('vendor/bootstrap/css/bootstrap.min.css');
 $this->registerCssFile('vendor/font-awesome/css/font-awesome.min.css');
 $this->registerCssFile('https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic');
 $this->registerCssFile('https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800');
@@ -21,7 +25,7 @@ $this->registerCssFile('css/clean-blog.min.css');
 $this->registerJsFile('vendor/jquery/jquery.min.js');
 $this->registerJsFile('vendor/jquery/jquery.min.js');
 $this->registerJsFile('vendor/bootstrap/js/bootstrap.bundle.min.js');
-$this->registerJsFile('js/clean-blog.min.js');
+$this->registerJsFile('js/clean-blog.min.js');*/
 ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -52,6 +56,8 @@ $this->registerJsFile('js/clean-blog.min.js');
             </div>
         </div>
     </header>
+
+    <!-- Main Content -->
     <div class="container"> 
       <?php foreach ($model as $campaign) {?>
       <div class="row">

@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\UserBackendSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'User Management';
+$this->title = 'Backend User Management';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-backend-index">
@@ -24,11 +24,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
     <hr style=" height:1px;border:none;border-top:1px solid #185598;" />
 
+    <h3 style="color: black">Backend User List</h3>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         //'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            /*['class' => 'yii\grid\SerialColumn'],*/
 
             'id',
             'username',
