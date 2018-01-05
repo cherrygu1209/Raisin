@@ -95,7 +95,7 @@ body {
       border-bottom: 1px solid transparent;
       background: transparent; }
       #mainNav .navbar-brand {
-        padding: 10px 20px;
+        //padding: 10px 20px;
         color: #fff; }
         #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
           color: rgba(255, 255, 255, 0.8); }
@@ -128,7 +128,7 @@ body {
         border-bottom: 1px solid white;
         background-color: rgba(255, 255, 255, 0.9); }
         #mainNav.is-fixed .navbar-brand {
-          color: #212529; }
+          color: #white; }
           #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
             color: #0085A1; }
         #mainNav.is-fixed .navbar-nav > li.nav-item > a {
