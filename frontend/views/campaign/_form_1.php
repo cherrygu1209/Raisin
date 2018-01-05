@@ -5,6 +5,8 @@ use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
 use frontend\models\Campaign;
 use trntv\yii\datetime\DateTimeWidget;
+use frontend\models\Category;
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Campaign */
@@ -48,12 +50,17 @@ use trntv\yii\datetime\DateTimeWidget;
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'c_title')->textInput(['maxlength' => true]) ?>
+     
+<!--     $list = CHtml::listData(Category::model()->findAll(array('order' => 'name')), 'id', 'name');-->
+           
+    <?php $categories= Category::find()-> all();
+        $listData = ArrayHelper::map($categories,'id','name');?>
+    <?= $form->field($model, 'c_cat_id')->dropDownList($listData, ['prompt' => '---- Select campaign category ----']); ?>
       
-    <div id="preview"><img src="" alt="Campaign Image" style='width:100%;'/></div>
+    <div id="preview"><img src="" alt="Campaign Image" style="width:75%"/></div>
     <?= $form->field($model, 'file')->fileInput();  ?>
-        
-    
-    <?= $form->field($model, 'c_description')->textarea(['rows' => 3]) ?>
+       
+    <?= $form->field($model, 'c_description')->textarea(['rows' => 3]); ?>
     
     <?= $form->field($model, 'c_start_date')->widget(
     'trntv\yii\datetime\DateTimeWidget',

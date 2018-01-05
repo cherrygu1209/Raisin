@@ -71,7 +71,7 @@ use yii\helpers\Html;
                           <ul class="sub-menu">
                               <!--<img src="<?php /*echo Yii::$app->request->baseUrl.$imagePath*/?>" width="30" height="30" class="img-circle" align="center"/>-->
                               <li><?= Html::a('Profile', ['user/index'])?></li>
-                              <li><?= Html::a('My Portfolio', ['user/portfolio'])?></li>
+                              <li><?= Html::a('My Campaigns', ['campaign/portfolio'])?></li>
                               <li><a href="#">My Wallet</a></li>
                               <li><?= Html::a(
                                       'Logout',

@@ -22,7 +22,7 @@ use yii\widgets\ListView;
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="page-heading">
-                        <h1>My Portfolio</h1>
+                        <h1>My Campaigns</h1>
                         <span class="subheading"></span>
                     </div>
                 </div>
@@ -40,41 +40,12 @@ use yii\widgets\ListView;
         'dataProvider'=>$model,
         'itemView'=>'created_campaigns_view'
     ]);
-//    //$model = new Campaign();
-//    echo TabsX::widget([
-//    'position' => TabsX::POS_ABOVE,
-//    'align' => TabsX::ALIGN_LEFT,
-//    'items' => [
-//        [
-//            'label' => 'Created Campaigns',
-//            'content' => $this->render('created_campaigns',['model' => $model]),
-//            'headerOptions' => ['style'=>'font-weight:bold'],
-//            'active' => true
-//        ],
-//        [
-//            'label' => 'Supported Campaigns',
-//            'content' => 'Anim pariatur cliche...',
-//            'headerOptions' => ['style'=>'font-weight:bold'],
-//            'options' => ['id' => 'myveryownID'],
-//        ],
-//        [
-//            'label' => 'Dropdown',
-//            'items' => [
-//                 [
-//                     'label' => 'DropdownA',
-//                     'content' => 'DropdownA, Anim pariatur cliche...',
-//                 ],
-//                 [
-//                     'label' => 'DropdownB',
-//                     'content' => 'DropdownB, Anim pariatur cliche...',
-//                 ],
-//            ],
-//        ],
-//    ],
-//]);
-
 ?>
         </div>
+                <!-- Pager -->
+        <div class="clearfix">
+            <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+          </div>
     </div>
     <hr>
     </body>

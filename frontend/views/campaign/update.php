@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = 'Update';
 <div class="site-about">
     <body>
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/about-bg.jpg')">
+    <header class="masthead" style="background-image: url('/img/about-bg.jpg')">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -34,14 +34,66 @@ $this->params['breadcrumbs'][] = 'Update';
     </header>
 
     <!-- Main Content -->
-    <div class="campaign-update">
-        <div class="container">
-    <h1><?= Html::encode($this->title) ?></h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 col-md-10 mx-auto">
+          <div class="post-preview">
+    <?php
+    
+    $form = ActiveForm::begin([
+        'id' => 'campaign-create-form',
+        'options' => ['enctype' => 'multipart/form-data']
+    ]);
+    
+    $wizard_config = [
+	'steps' => [
+		'1' => [
+			'title' => 'Start your campaign',
+			'icon' => 'glyphicon glyphicon-user',
+			'content' => $this->render('_form_1',['model' => $model]),
+			'buttons' => [
+				'next' => [
+					'title' => 'Save and continue',
+					'options' => [
+						'class' => 'btn btn-info btn-next btn-lg'
+					],
+				 ],
+			 ],
+		],
+		'2' => [
+			'title' => 'The Story',
+			'icon' => 'glyphicon glyphicon-gift',
+			'content' => $this->render('_form_2',['model' => $model]),
+                        'buttons' => [
+				'next' => [
+					'title' => 'Save and continue',
+					'options' => [
+						'class' => 'btn btn-info btn-next btn-lg'
+					],
+				 ],
+                                'prev' =>[
+                                    'title' => 'Previous',
+					'options' => [
+						'class' => 'btn btn-info btn-next btn-lg'
+					],
+                                    
+                                ]
+			 ],
+                ],
+                
+	],
+	
+	//'complete_content' => "You are done!", // Optional final screen
+	'start_step' => 1, // Optional, start with a specific step
+];
+?>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+<?= \drsdre\wizardwidget\WizardWidget::widget($wizard_config); 
+    ActiveForm::end();
+?>
+          </div>
         </div>
+      </div>
     </div>
     <hr>
     </body>

@@ -138,16 +138,16 @@ class UserController extends Controller
         }
     }
     
-    public function actionPortfolio()
-    {
-        $user_id = Yii::$app->user->identity->id;
-        $model = new ActiveDataProvider([
-                    'query'=> Campaign::find()->where(['c_author'=>$user_id]),
-                    'pagination'=>[
-                        'pageSize'=>5
-                    ]
-        ]);
-        return $this->render('portfolio',['model'=>$model]);
-        //return $this->render('portfolio');
-    }
+//    public function actionPortfolio()
+//    {
+//        $user_id = Yii::$app->user->identity->id;
+//        $model = new ActiveDataProvider([
+//                    'query'=> Campaign::find()->where(['c_author'=>$user_id]),
+//                    'pagination'=>[
+//                        'pageSize'=>5
+//                    ]
+//        ]);
+//        return $this->render('my_campaigns',['model'=>$model]);
+//        //return $this->render('portfolio');
+//    }
 }

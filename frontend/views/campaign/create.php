@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="col-lg-9 col-md-10 mx-auto">
             <div class="site-heading">
               <h1>Start a Campaign</h1>
               <span class="subheading">Add picture and details of the campaign.</span>
