@@ -20,11 +20,9 @@ class AppAsset extends AssetBundle
         'https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic',
         'https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800',
         'vendor/2amigos/yii2-date-picker-widget/src/assets/css/bootstrap-daterangepicker.css',
-        'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700',
-        'css/user/reset.css',
-        'css/user/style.css',
-        'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
-        'https://bootswatch.com/cosmo/bootstrap.min.css',
+        'css/styles.css',
+//        'css/1-col-portfolio.css',
+//        'css/bootstrap.min.css',
     ];
     public $js = [
         'js/clean-blog.js',
@@ -34,9 +32,9 @@ class AppAsset extends AssetBundle
         'vendor/jquery/jquery.min.js',
         'vendor/bootstrap/js/bootstrap.bundle.min.js',
         'vendor/bootstrap/js/bootstrap.js',
-        'js/user/jquery-2.1.4.js',
-        'js/user/main.js',
-        'js/user/modernizr.js',
+        'js/modal.js'
+//        'js/bootstrap.bundle.min.js',
+//        'js/jquery.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

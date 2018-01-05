@@ -24,7 +24,10 @@
         "bailangzhan/yii2-webuploader": "dev-master",
         "2amigos/yii2-date-picker-widget": "~1.0",
         "drsdre/yii2-wizardwidget": "*",
-        "kartik-v/yii2-widgets": "*"
+        "kartik-v/yii2-widgets": "*",
+        "kartik-v/yii2-tabs-x": "@dev",
+        "trntv/yii2-datetime-widget": "^1.0",
+        "kartik-v/yii2-dialog": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
 use frontend\models\Campaign;
+use trntv\yii\datetime\DateTimeWidget;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Campaign */
@@ -11,7 +12,7 @@ use frontend\models\Campaign;
 ?>
 <style>
     #preview{
-        width:580px;
+        width:100%;
         border:1px solid#e5e5e5;
         height:420px;
     }
@@ -48,24 +49,29 @@ use frontend\models\Campaign;
 
     <?= $form->field($model, 'c_title')->textInput(['maxlength' => true]) ?>
       
-    <div id="preview"><img src="" alt="Preview"/></div>
+    <div id="preview"><img src="" alt="Campaign Image" style='width:100%;'/></div>
     <?= $form->field($model, 'file')->fileInput();  ?>
         
     
     <?= $form->field($model, 'c_description')->textarea(['rows' => 3]) ?>
     
     <?= $form->field($model, 'c_start_date')->widget(
-         DatePicker::className(), [
-        // inline too, not bad
-         'inline' => FALSE, 
-         // modify template for custom rendering
-         //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
+    'trntv\yii\datetime\DateTimeWidget',
+    [
+        'phpDatetimeFormat' => 'yyyy-MM-dd\'T\'HH:mm:ssZZZZZ',
         'clientOptions' => [
-            'autoclose' => true,
-            'format' => 'dd-M-yyyy'
+            'minDate' => new \yii\web\JsExpression('new Date("2015-01-01")'),
+            'allowInputToggle' => false,
+            'sideBySide' => true,
+            'locale' => 'zh-cn',
+            'widgetPositioning' => [
+               'horizontal' => 'auto',
+               'vertical' => 'auto'
+            ]
         ]
-]);?>
-
+    ]
+    ); ?>
+            
     <?= $form->field($model, 'c_end_date')->widget(
          DatePicker::className(), [
         // inline too, not bad

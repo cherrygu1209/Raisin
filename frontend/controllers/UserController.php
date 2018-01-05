@@ -4,11 +4,13 @@ namespace frontend\controllers;
 
 use Yii;
 use frontend\models\User;
+use frontend\models\Campaign;
 use frontend\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\data\ActiveDataProvider;
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -161,5 +163,18 @@ class UserController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    
+    public function actionPortfolio()
+    {
+        $user_id = Yii::$app->user->identity->id;
+        $model = new ActiveDataProvider([
+                    'query'=> Campaign::find()->where(['c_author'=>$user_id]),
+                    'pagination'=>[
+                        'pageSize'=>5
+                    ]
+        ]);
+        return $this->render('portfolio',['model'=>$model]);
+        //return $this->render('portfolio');
     }
 }
