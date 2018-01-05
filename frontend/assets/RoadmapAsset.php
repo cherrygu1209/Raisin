@@ -16,6 +16,8 @@ class RoadmapAsset extends AssetBundle
     public $css = [
         'css/roadmap/reset.css',
         'css/roadmap/style.css',
+        'css/user/reset.css',
+        'css/user/style.css',
         'http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700',
     ];
 

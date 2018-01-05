@@ -18,6 +18,11 @@ class FaqAsset extends AssetBundle
         'vendor/font-awesome/css/font-awesome.min.css',
         'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700',
         'css/faq/style.css',
+        'css/user/reset.css',
+        'css/user/style.css',
+        'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700',
+        'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+        'https://bootswatch.com/cosmo/bootstrap.min.css',
     ];
 
     public $js = [

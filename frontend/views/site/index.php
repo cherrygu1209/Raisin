@@ -1,5 +1,4 @@
 <?php
-namespace frontend\views\fund;
 
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -7,7 +6,7 @@ use frontend\models\Campaign;
 frontend\assets\AppAsset::register($this);
 use common\widgets\Alert;
 /* @var $this yii\web\View */
-/*$this->registerCssFile('vendor/bootstrap/css/bootstrap.min.css');
+/*$this->registerCssFile('vendor/bootstrap/css/bootstrap.min.css');*/
 use yii\widgets\ListView;
 use yii\bootstrap\Modal;
 use yii\widgets\ActiveForm;

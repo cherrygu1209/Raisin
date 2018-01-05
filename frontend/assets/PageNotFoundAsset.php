@@ -19,6 +19,8 @@ class PageNotFoundAsset extends AssetBundle
         'css/pageNotFound/bootstrap-theme.css',
         'css/pageNotFound/font-awesome.css',
         'css/pageNotFound/style.css',
+        'css/user/reset.css',
+        'css/user/style.css',
     ];
 
     public $js = [

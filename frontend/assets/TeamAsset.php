@@ -16,6 +16,8 @@ class TeamAsset extends AssetBundle
     public $css = [
         'css/team/font-awesome.min.css',
         'css/team/main.css',
+        'css/user/reset.css',
+        'css/user/style.css',
         'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400|Passion+One:400',
     ];
 
