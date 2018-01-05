@@ -4,41 +4,47 @@ use yii\bootstrap\NavBar;
 use yii\helpers\Url;
 use yii\helpers\Html;
 
+frontend\assets\AppAsset::register($this);
 /*$imagePath = '/'.Yii::$app->user->identity->image;*/
 ?>
-<header class="main-header">
 
-    <!--<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="<?=Url::to(['/site/index'])?>">GoRaisin</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+</nav>-->
 
 
-              <!-- search box not implement yet -->
-              <!--<form class="navbar-form navbar-right" role="search">
-
-                  <button type="button" id="btn-togglesearch" class="btn-search">
-                      <span class="fa fa-bars" aria-hidden="true"></span>
-                      <span>Toggle search</span>
-                  </button>
-
-                  <div>
-                      <input>
-                  </div>
-
-                  <button>
-                      <span></span>
-                      <span>Submit search</span>
-                  </button>
-              </form>-->
-
-
+<header class="main-header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="<?=Url::to(['/site/index'])?>">GoRaisin</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link" href="<?=Url::to(['/site/index'])?>">Whitepaper</a>
             </li>
@@ -66,13 +72,11 @@ use yii\helpers\Html;
             ?>
               <nav class="menu">
                   <ul class="clearfix">
-                      <li>
-                          <a href="#"><img src="<?php
-                              $imagePath = '/'.Yii::$app->user->identity->image;
-                              echo Yii::$app->request->baseUrl.$imagePath?>" width="40" height="40" class="img-circle"/></a>
-
+                      <li><a>
+                          <p><?=Html::img(Url::to('@web/uploads/user/'.Yii::$app->user->identity->image),['class' => 'mg-circle'],['width'=>'40'],['height'=>'40'])?></p>
+                          </a>
                           <ul class="sub-menu">
-                              <!--<img src="<?php /*echo Yii::$app->request->baseUrl.$imagePath*/?>" width="30" height="30" class="img-circle" align="center"/>-->
+                              <img src="<?php /*echo Yii::$app->request->baseUrl.$imagePath*/?>" width="30" height="30" class="img-circle" align="center"/>
                               <li><?= Html::a('Profile', ['user/index'])?></li>
 
                               <li><?= Html::a('My Campaigns', ['campaign/portfolio'])?></li>

@@ -18,6 +18,7 @@ class CampaignAsset extends AssetBundle
         'https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800',
         'css/clean-blog.min.css',
         'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+        'css/half-slider.css',
         
     ];
     public $js = [

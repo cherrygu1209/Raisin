@@ -24,7 +24,7 @@ AppAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body>
-    <?php $this->beginBody() ?>
+    <?php // $this->beginBody() ?>
 
     <?=$this->render('header')?>
     <div id="main">
