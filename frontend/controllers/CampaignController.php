@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\uploads;
 use yii\web\UploadedFile;
+use yii\data\ActiveDataProvider;
 
 /**
  * CampaignController implements the CRUD actions for Campaign model.
@@ -142,6 +143,19 @@ class CampaignController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    
+    public function actionPortfolio()
+    {
+        $user_id = Yii::$app->user->identity->id;
+        $model = new ActiveDataProvider([
+                    'query'=> Campaign::find()->where(['c_author'=>$user_id]),
+                    'pagination'=>[
+                        'pageSize'=>5
+                    ]
+        ]);
+        return $this->render('my_campaigns',['model'=>$model]);
+        //return $this->render('portfolio');
     }
     
 }

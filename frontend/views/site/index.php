@@ -1,5 +1,5 @@
 <?php
-namespace frontend\views\fund;
+
 
 use yii\helpers\Html;
 use yii\helpers\Url;
@@ -14,6 +14,7 @@ use yii\widgets\ActiveForm;
 use frontend\models\Fund;
 
 /* @var $this yii\web\View */
+//frontend\assets\CampaignAsset::register($this);
 
 $this->title = 'GoRaisin';
 /*$this->registerCssFile('vendor/bootstrap/css/bootstrap.min.css');
@@ -29,13 +30,11 @@ $this->registerJsFile('js/clean-blog.min.js');*/
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- Latest minified bootstrap css -->
+   
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
-<!-- Latest minified bootstrap js -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <div class="site-index">
 
@@ -101,7 +100,7 @@ $this->registerJsFile('js/clean-blog.min.js');*/
         </div>
       </div>
         <?php }?>
-         Pager 
+<!--         Pager -->
         <div class="clearfix">
             <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
           </div>

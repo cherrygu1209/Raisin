@@ -32,8 +32,8 @@ $this->registerJsFile('js/clean-blog.min.js');
           <h3><?=$model->c_title?></h3>
           <p><?=$model->c_description?></p>
           <div class="section" style="padding-bottom:20px;">
-              <a href="<?=Url::to(['campaign/view','id'=>$model->c_id])?>">
-                <button class="btn btn-warning"><span style="margin-right:20px" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>View Campaign</button>
+              <a href="<?=Url::to(['campaign/update','id'=>$model->c_id])?>">
+                <button class="btn btn-warning"><span style="margin-right:20px" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Edit Campaign</button>
               </a>
 <!--                <button class="btn btn-info"><span style="margin-right:20px" class="glyphicon glyphicon-gift" aria-hidden="true"></span>Fund Campaign</button>-->
           </div>
@@ -56,10 +56,6 @@ $this->registerJsFile('js/clean-blog.min.js');
           </table>
         </div>
       </div>
-        <!-- Pager -->
-        <div class="clearfix">
-            <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-          </div>
     </div>
     <hr>
 </div> 
