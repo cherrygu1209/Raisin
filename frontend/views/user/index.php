@@ -34,29 +34,24 @@ $userId = Yii::$app->user->identity->id;
     </head>
     <body>
     <header>
-        <nav class="cd-stretchy-nav">
+         <nav class="cd-stretchy-nav">
             <a class="cd-nav-trigger" href="#0">
                 <span aria-hidden="true"></span>
             </a>
 
             <ul>
                 <li><?= Html::a(' profile &nbsp&nbsp&nbsp<i class="fa fa-user-o"></i>',['user/index'], array('class' => 'active')) ?></li>
-                <!--<li><a href="#0" class="active" class="fa fa-home"><span>Profile</span></a></li>-->
                 <li><?= Html::a(' Portfolio &nbsp&nbsp&nbsp<i class="fa fa-star-o"></i>',['site/index']) ?></li>
                 <li><?= Html::a(' Campaign &nbsp&nbsp&nbsp<i class="fa fa-shopping-bag"></i>',['campaign/index']) ?></li>
                 <li><?= Html::a(' Wallet &nbsp&nbsp&nbsp<i class="fa fa-btc"></i>',['wallet/index']) ?></li>
                 <li><?= Html::a(' Notice &nbsp&nbsp&nbsp<i class="fa fa-envelope"></i>',['site/index']) ?></li>
-                <!--<li><a href="#0"><span>Portfolio</span></a></li>
-                <li><a href="#0"><span>Services</span></a></li>
-                <li><a href="#0"><span>Store</span></a></li>
-                <li><a href="#0"><span>Contact</span></a></li>-->
 
 
-                <?/*= Html::a('<i class="fa fa-fw fa-user"></i> Sign Up',['site/signup'], ['class' => 'btn btn-black', 'title' => 'Sign Up']) */?>
             </ul>
 
             <span aria-hidden="true" class="stretchy-nav-bg"></span>
         </nav>
+
     </header>
 
     <main class="cd-main-content">

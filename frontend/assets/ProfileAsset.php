@@ -14,7 +14,6 @@ class ProfileAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
         'css/user/reset.css',
         'css/user/style.css',
         'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700',
@@ -26,6 +25,7 @@ class ProfileAsset extends AssetBundle
         'js/user/jquery-2.1.4.js',
         'js/user/main.js',
         'js/user/modernizr.js',
+        /*'js/user/min/main-min.js',*/
     ];
 
     public $depends = [
