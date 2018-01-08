@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\FrontendUser;
-use backend\models\FrontendUserSearch;
+use backend\models\Support;
+use backend\models\SupportSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * FrontendUserController implements the CRUD actions for FrontendUser model.
+ * SupportController implements the CRUD actions for Support model.
  */
-class FrontendUserController extends Controller
+class SupportController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class FrontendUserController extends Controller
     }
 
     /**
-     * Lists all FrontendUser models.
+     * Lists all Support models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new FrontendUserSearch();
+        $searchModel = new SupportSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,9 +45,10 @@ class FrontendUserController extends Controller
     }
 
     /**
-     * Displays a single FrontendUser model.
+     * Displays a single Support model.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
@@ -57,28 +58,29 @@ class FrontendUserController extends Controller
     }
 
     /**
-     * Creates a new FrontendUser model.
+     * Creates a new Support model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     /*public function actionCreate()
     {
-        $model = new FrontendUser();
+        $model = new Support();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }*/
 
     /**
-     * Updates an existing FrontendUser model.
+     * Updates an existing Support model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     /*public function actionUpdate($id)
     {
@@ -86,18 +88,19 @@ class FrontendUserController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
         }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }*/
 
     /**
-     * Deletes an existing FrontendUser model.
+     * Deletes an existing Support model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
     {
@@ -107,18 +110,18 @@ class FrontendUserController extends Controller
     }
 
     /**
-     * Finds the FrontendUser model based on its primary key value.
+     * Finds the Support model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return FrontendUser the loaded model
+     * @return Support the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = FrontendUser::findOne($id)) !== null) {
+        if (($model = Support::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

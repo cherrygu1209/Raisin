@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <body>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('img/contact-bg.jpg')">
+    <!--<header class="masthead" style="background-image: url('img/contact-bg.jpg')">
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
@@ -27,10 +27,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
             </div>
         </div>
-    </header>
+    </header>-->
 
 
     <!-- Main Content -->
+    <br /><br /><br />
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
@@ -40,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
                 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
+                <?php if(Yii::$app->user->isGuest){ ?>
                 <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
 
                 <?= $form->field($model, 'email') ?>
@@ -51,6 +53,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
                     'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
                 ]) ?>
+
+                <?php } else { ?>
+                <?= $form->field($model, 'subject') ?>
+
+                <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
+
+                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+                    'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+                ]) ?>
+                <?php } ?>
 
                 <div class="form-group">
                     <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>

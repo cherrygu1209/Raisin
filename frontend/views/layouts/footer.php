@@ -9,7 +9,7 @@ use yii\helpers\Url;
               <li class="list-inline-item">
                 <a href="#">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?=Url::to(['/site/contact'])?>">Support</a>
+                        <a class="nav-link" href="<?=Url::to(['/support/create'])?>">Support</a>
                     </li>
                 </a>
               </li>
