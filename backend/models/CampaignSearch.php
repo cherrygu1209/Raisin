@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use backend\models\Campaign;
 
 /**
- * CampaignSearch represents the model behind the search form about `backend\models\Campaign`.
+ * CampaignSearch represents the model behind the search form of `backend\models\Campaign`.
  */
 class CampaignSearch extends Campaign
 {
@@ -18,8 +18,8 @@ class CampaignSearch extends Campaign
     public function rules()
     {
         return [
-            [['id', 'views', 'is_delete'], 'integer'],
-            [['title', 'content', 'created_at', 'updated_at'], 'safe'],
+            [['c_title', 'c_image', 'c_description', 'c_start_date', 'c_end_date', 'c_video', 'c_description_long', 'c_author', 'c_created_at', 'c_display_name', 'c_email', 'c_location', 'c_biography', 'c_social_profile', 'c_status'], 'safe'],
+            [['c_goal', 'c_id', 'c_cat_id'], 'integer'],
         ];
     }
 
@@ -59,15 +59,26 @@ class CampaignSearch extends Campaign
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
-            'views' => $this->views,
-            'is_delete' => $this->is_delete,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'c_start_date' => $this->c_start_date,
+            'c_end_date' => $this->c_end_date,
+            'c_goal' => $this->c_goal,
+            'c_id' => $this->c_id,
+            'c_created_at' => $this->c_created_at,
+            'c_cat_id' => $this->c_cat_id,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'content', $this->content]);
+        $query->andFilterWhere(['like', 'c_title', $this->c_title])
+            ->andFilterWhere(['like', 'c_image', $this->c_image])
+            ->andFilterWhere(['like', 'c_description', $this->c_description])
+            ->andFilterWhere(['like', 'c_video', $this->c_video])
+            ->andFilterWhere(['like', 'c_description_long', $this->c_description_long])
+            ->andFilterWhere(['like', 'c_author', $this->c_author])
+            ->andFilterWhere(['like', 'c_display_name', $this->c_display_name])
+            ->andFilterWhere(['like', 'c_email', $this->c_email])
+            ->andFilterWhere(['like', 'c_location', $this->c_location])
+            ->andFilterWhere(['like', 'c_biography', $this->c_biography])
+            ->andFilterWhere(['like', 'c_social_profile', $this->c_social_profile])
+            ->andFilterWhere(['like', 'c_status', $this->c_status]);
 
         return $dataProvider;
     }

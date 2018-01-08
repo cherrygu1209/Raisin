@@ -15,19 +15,41 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?/*= $form->field($model, 'id') */?>
+    <?= $form->field($model, 'c_title') ?>
 
-    <?= $form->field($model, 'title') ?>
+    <?= $form->field($model, 'c_image') ?>
 
-    <?/*= $form->field($model, 'content') */?><!--
+    <?= $form->field($model, 'c_description') ?>
 
-    <?/*= $form->field($model, 'views') */?>
+    <?= $form->field($model, 'c_start_date') ?>
 
-    --><?/*= $form->field($model, 'is_delete') */?>
+    <?= $form->field($model, 'c_end_date') ?>
 
-    <?php // echo $form->field($model, 'created_at') ?>
+    <?php // echo $form->field($model, 'c_goal') ?>
 
-    <?php // echo $form->field($model, 'updated_at') ?>
+    <?php // echo $form->field($model, 'c_id') ?>
+
+    <?php // echo $form->field($model, 'c_video') ?>
+
+    <?php // echo $form->field($model, 'c_description_long') ?>
+
+    <?php // echo $form->field($model, 'c_author') ?>
+
+    <?php // echo $form->field($model, 'c_created_at') ?>
+
+    <?php // echo $form->field($model, 'c_display_name') ?>
+
+    <?php // echo $form->field($model, 'c_email') ?>
+
+    <?php // echo $form->field($model, 'c_location') ?>
+
+    <?php // echo $form->field($model, 'c_biography') ?>
+
+    <?php // echo $form->field($model, 'c_social_profile') ?>
+
+    <?php // echo $form->field($model, 'c_status') ?>
+
+    <?php // echo $form->field($model, 'c_cat_id') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

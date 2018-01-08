@@ -3,14 +3,11 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Category;
-use common\models\CategorySearch;
+use backend\models\Category;
+use backend\models\CategorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use backend\models\CategoryForm;
-use backend\models\CategoryFormSearch;
-
 
 /**
  * CategoryController implements the CRUD actions for Category model.
@@ -38,7 +35,7 @@ class CategoryController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new CategoryFormSearch();
+        $searchModel = new CategorySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -51,6 +48,7 @@ class CategoryController extends Controller
      * Displays a single Category model.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
@@ -66,16 +64,15 @@ class CategoryController extends Controller
      */
     public function actionCreate()
     {
-        $model = new CategoryForm();
+        $model = new Category();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            //return $this->redirect(['view', 'id' => $model->id]);
-            return $this->redirect(['index']);
-        } else {
-            return $this->renderAjax('create', [
-                'model' => $model,
-            ]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -83,6 +80,7 @@ class CategoryController extends Controller
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
     {
@@ -90,11 +88,11 @@ class CategoryController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->renderAjax('update', [
-                'model' => $model,
-            ]);
         }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -102,6 +100,7 @@ class CategoryController extends Controller
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
     {
@@ -121,8 +120,8 @@ class CategoryController extends Controller
     {
         if (($model = Category::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }
