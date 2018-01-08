@@ -8,7 +8,7 @@ use backend\models\CampaignSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\helper\Url;
+
 /**
  * CampaignController implements the CRUD actions for Campaign model.
  */
@@ -48,6 +48,7 @@ class CampaignController extends Controller
      * Displays a single Campaign model.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
@@ -66,12 +67,12 @@ class CampaignController extends Controller
         $model = new Campaign();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
-        } else {
-            return $this->renderAjax('create', [
-                'model' => $model,
-            ]);
+            return $this->redirect(['view', 'id' => $model->c_id]);
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -79,19 +80,19 @@ class CampaignController extends Controller
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            /*return $this->redirect(Url::toRoute('index'));*/
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->renderAjax('update', [
-                'model' => $model,
-            ]);
+            return $this->redirect(['view', 'id' => $model->c_id]);
         }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
@@ -99,27 +100,13 @@ class CampaignController extends Controller
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }
-
-
-
-
-
-    /**
-     *validate form
-    **/
-    public function actionValidateForm()
-    {
-        $model = new Campaign();
-        $model->load(Yii::$app->request->post());
-        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        return \yii\widgets\ActiveForm::validate($model);
     }
 
     /**
@@ -133,8 +120,8 @@ class CampaignController extends Controller
     {
         if (($model = Campaign::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

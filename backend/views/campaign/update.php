@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Campaign */
 
-$this->title = 'Update Campaign: ' . $model->title;
+$this->title = 'Update Campaign: {nameAttribute}';
 $this->params['breadcrumbs'][] = ['label' => 'Campaigns', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->c_id, 'url' => ['view', 'id' => $model->c_id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="campaign-update">
