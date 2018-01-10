@@ -26,6 +26,7 @@ class AppAsset extends AssetBundle
         'css/bootstrap-grid.min.css',
         'css/bootstrap-reboot.css',
         'css/bootstrap-reboot.min.css',
+        'css/explore_campaigns_style.css'
     ];
     public $js = [
         'js/clean-blog.js',

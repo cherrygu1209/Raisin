@@ -77,7 +77,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-          $model = Campaign::find()->all();
+          $limit = 2;
+          $model = Campaign::find()->limit($limit)->all();
+          $exploreModel = Campaign::find()->where(['c_status'=>'published'])->all();
           $fund = new Fund();
           if(Yii::$app->request->post()){
             $fund->fund_user_id = Yii::$app->user->identity->getId();
@@ -85,7 +87,10 @@ class SiteController extends Controller
             return $this->render('index',['model'=>$model]);
               
           }else{
-               return $this->render('index',['model'=>$model]);
+               return $this->render('index',[
+                        'model'=>$model,
+                        'exploreModel'=>$exploreModel,
+                   ]);
           }
           
 //        $user_id = Yii::$app->user->identity->id;

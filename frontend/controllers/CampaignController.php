@@ -4,6 +4,7 @@ namespace frontend\controllers;
 
 use Yii;
 use frontend\models\Campaign;
+use frontend\models\Reward;
 use frontend\models\CampaignSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -74,23 +75,31 @@ class CampaignController extends Controller
     public function actionCreate()
     {
         $model = new Campaign();
+        $reward = new Reward();
 
-        if ($model->load(Yii::$app->request->post())) {
+        if ($model->load(Yii::$app->request->post(''))) {
             $model-> c_author = Yii::$app->user->identity->getId();
             
-            
-            //$imageName = $model->c_title;
+           //$imageName = $model->c_title;
             $model->file = UploadedFile::getInstance($model,'file');
-            $model->file->saveAs('uploads/'.$model->file->baseName.'.'.$model->file->extension);
-            
+            $model->file->saveAs('uploads/campaign_img/'.$model->file->baseName.'.'.$model->file->extension);
             $model->c_image=$model->file->baseName.'.'.$model->file->extension;
             
-            if($model->save(false)){
+//            $model->videoFile = UploadedFile::getInstance($model, 'videoFile');
+//            $model->videoFile->saveAs('uploads/campaign_video/'.$model->videoFile->baseName.'.'.$model->videoFile->extension);
+//            $model->c_video=$model->videoFile->baseName.'.'.$model->videoFile->extension;
+                                  
+            if($model->save(false)){              
+                $reward->load(Yii::$app->request->post(''));
+                $reward->c_id = $model->c_id;
+                if ($reward->save(false)){
                 return $this->redirect(['view', 'id' => $model->c_id]);
+                }
             }
         }
         return $this->render('create', [
                 'model' => $model,
+                'reward' => $reward,
             ]);
     }
 

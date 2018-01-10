@@ -15,9 +15,11 @@ use frontend\models\Campaign;
     <div class="form-group">
     <!--<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>-->
   
-    <?= $form->field($model, 'c_video')->textInput(['maxlength' => true]) ?>
+    <!--<?= $form->field($model, 'c_video')->textInput(['maxlength' => true]) ?>-->
+    <?= $form->field($model, 'videoFile')->fileInput()->label(false) ?>
 
     <?= $form->field($model, 'c_description_long')->textarea(['rows' => 6]); ?>
-    <!--<?php ActiveForm::end(); ?>-->
+    
+    <?php ActiveForm::end(); ?>
     </div>
 </div>

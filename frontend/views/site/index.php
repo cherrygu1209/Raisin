@@ -26,8 +26,8 @@ $this->registerJsFile('js/clean-blog.min.js');
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<div class="site-index">
 
+<div class="site-index">
     <?php
     $fund = new Fund();
     ?>
@@ -128,14 +128,287 @@ $this->registerJsFile('js/clean-blog.min.js');
                 </div>
             </div>
         <?php } ?>
-        <!--         Pager -->
-        <div class="clearfix">
+        <!--Pager -->
+<!--        <div class="clearfix">
             <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
-        </div>
+        </div>-->
     </div>
     <hr>
 </div>  
 
+        <!--Explore Project -->
+<div class="container">
+<div class="agile_top_brands_grids">
+	<div class="col-md-4 top_brand_left">
+		<div class="hover14 column">
+			<div class="agile_top_brand_left_grid">
+				<div class="agile_top_brand_left_grid_pos">
+					<img src="images/offer.png" alt=" " class="img-responsive" />
+				</div>
+				<div class="agile_top_brand_left_grid1">
+					<figure>
+						<div class="snipcart-item block" >
+							<div class="snipcart-thumb">
+								<a href="products.html"><img title=" " alt=" " src=""/>
+<!--                                                                <p><?= Html::img(Url::to('@web/uploads/' . $campaign->c_image), ['class' => 'img-fluid rounded mb-3 mb-md-0'], ['alt' => 'Image'], ['align' => 'left'], ['width' => '700'], ['height' => '300']) ?></p>-->
+                                                                </a>		
+								<p></p>
+								<div class="stars">
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star gray-star" aria-hidden="true"></i>
+								</div>
+								<h4>$20.99 <span>$35.00</span></h4>
+							</div>
+							<div class="snipcart-details top_brand_home_details">
+								<form action="#" method="post">
+									<fieldset>
+										<input type="hidden" name="cmd" value="_cart" />
+										<input type="hidden" name="add" value="1" />
+										<input type="hidden" name="business" value=" " />
+										<input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+										<input type="hidden" name="amount" value="20.99" />
+										<input type="hidden" name="discount_amount" value="1.00" />
+										<input type="hidden" name="currency_code" value="USD" />
+										<input type="hidden" name="return" value=" " />
+										<input type="hidden" name="cancel_return" value=" " />
+										<input type="submit" name="submit" value="Add to cart" class="button" />
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 top_brand_left">
+		<div class="hover14 column">
+			<div class="agile_top_brand_left_grid">
+				<div class="agile_top_brand_left_grid_pos">
+					<img src="images/offer.png" alt=" " class="img-responsive" />
+				</div>
+				<div class="agile_top_brand_left_grid1">
+					<figure>
+						<div class="snipcart-item block" >
+							<div class="snipcart-thumb">
+								<a href="products.html"><img title=" " alt=" " src="images/2.png" /></a>		
+								<p></p>
+								<div class="stars">
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star gray-star" aria-hidden="true"></i>
+								</div>
+								<h4> <span></span></h4>
+							</div>
+							<div class="snipcart-details top_brand_home_details">
+								<form action="#" method="post">
+									<fieldset>
+										<input type="hidden" name="cmd" value="_cart" />
+										<input type="hidden" name="add" value="1" />
+										<input type="hidden" name="business" value=" " />
+										<input type="hidden" name="item_name" value="basmati rise" />
+										<input type="hidden" name="amount" value="20.99" />
+										<input type="hidden" name="discount_amount" value="1.00" />
+										<input type="hidden" name="currency_code" value="USD" />
+										<input type="hidden" name="return" value=" " />
+										<input type="hidden" name="cancel_return" value=" " />
+										<input type="submit" name="submit" value="Add to cart" class="button" />
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 top_brand_left">
+		<div class="hover14 column">
+			<div class="agile_top_brand_left_grid">
+				<div class="agile_top_brand_left_grid_pos">
+					<img src="images/offer.png" alt=" " class="img-responsive" />
+				</div>
+				<div class="agile_top_brand_left_grid1">
+					<figure>
+						<div class="snipcart-item block">
+							<div class="snipcart-thumb">
+								<a href="products.html"><img src="images/3.png" alt=" " class="img-responsive" /></a>
+								<p></p>
+								<div class="stars">
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star gray-star" aria-hidden="true"></i>
+								</div>
+								<h4><span></span></h4>
+							</div>
+							<div class="snipcart-details top_brand_home_details">
+								<form action="#" method="post">
+									<fieldset>
+										<input type="hidden" name="cmd" value="_cart" />
+										<input type="hidden" name="add" value="1" />
+										<input type="hidden" name="business" value=" " />
+										<input type="hidden" name="item_name" value="Pepsi soft drink" />
+										<input type="hidden" name="amount" value="40.00" />
+										<input type="hidden" name="discount_amount" value="1.00" />
+										<input type="hidden" name="currency_code" value="USD" />
+										<input type="hidden" name="return" value=" " />
+										<input type="hidden" name="cancel_return" value=" " />
+										<input type="submit" name="submit" value="Add to cart" class="button" />
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"> </div>
+</div>
+                            <div class="agile_top_brands_grids">
+	<div class="col-md-4 top_brand_left">
+		<div class="hover14 column">
+			<div class="agile_top_brand_left_grid">
+				<div class="agile_top_brand_left_grid_pos">
+					<img src="images/offer.png" alt=" " class="img-responsive" />
+				</div>
+				<div class="agile_top_brand_left_grid1">
+					<figure>
+						<div class="snipcart-item block" >
+							<div class="snipcart-thumb">
+								<a href="products.html"><img title=" " alt=" " src="images/4.png" /></a>		
+								<p></p>
+								<div class="stars">
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star gray-star" aria-hidden="true"></i>
+								</div>
+								<h4><span></span></h4>
+							</div>
+							<div class="snipcart-details top_brand_home_details">
+								<form action="#" method="post">
+									<fieldset>
+										<input type="hidden" name="cmd" value="_cart" />
+										<input type="hidden" name="add" value="1" />
+										<input type="hidden" name="business" value=" " />
+										<input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+										<input type="hidden" name="amount" value="35.99" />
+										<input type="hidden" name="discount_amount" value="1.00" />
+										<input type="hidden" name="currency_code" value="USD" />
+										<input type="hidden" name="return" value=" " />
+										<input type="hidden" name="cancel_return" value=" " />
+										<input type="submit" name="submit" value="Add to cart" class="button" />
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 top_brand_left">
+		<div class="hover14 column">
+			<div class="agile_top_brand_left_grid">
+				<div class="agile_top_brand_left_grid_pos">
+					<img src="images/offer.png" alt=" " class="img-responsive" />
+				</div>
+				<div class="agile_top_brand_left_grid1">
+					<figure>
+						<div class="snipcart-item block" >
+							<div class="snipcart-thumb">
+								<a href="products.html"><img title=" " alt=" " src="images/5.png" /></a>		
+								<p></p>
+								<div class="stars">
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star gray-star" aria-hidden="true"></i>
+								</div>
+								<h4><span></span></h4>
+							</div>
+							<div class="snipcart-details top_brand_home_details">
+								<form action="#" method="post">
+									<fieldset>
+										<input type="hidden" name="cmd" value="_cart" />
+										<input type="hidden" name="add" value="1" />
+										<input type="hidden" name="business" value=" " />
+										<input type="hidden" name="item_name" value="basmati rise" />
+										<input type="hidden" name="amount" value="30.99" />
+										<input type="hidden" name="discount_amount" value="1.00" />
+										<input type="hidden" name="currency_code" value="USD" />
+										<input type="hidden" name="return" value=" " />
+										<input type="hidden" name="cancel_return" value=" " />
+										<input type="submit" name="submit" value="Add to cart" class="button" />
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4 top_brand_left">
+		<div class="hover14 column">
+			<div class="agile_top_brand_left_grid">
+				<div class="agile_top_brand_left_grid_pos">
+					<img src="images/offer.png" alt=" " class="img-responsive" />
+				</div>
+				<div class="agile_top_brand_left_grid_pos">
+					<img src="images/offer.png" alt=" " class="img-responsive" />
+				</div>
+				<div class="agile_top_brand_left_grid1">
+					<figure>
+						<div class="snipcart-item block">
+							<div class="snipcart-thumb">
+								<a href="products.html"><img src="images/6.png" alt=" " class="img-responsive" /></a>
+								<p></p>
+								<div class="stars">
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star blue-star" aria-hidden="true"></i>
+									<i class="fa fa-star gray-star" aria-hidden="true"></i>
+								</div>
+								<h4><span></span></h4>
+							</div>
+							<div class="snipcart-details top_brand_home_details">
+								<form action="#" method="post">
+									<fieldset>
+										<input type="hidden" name="cmd" value="_cart" />
+										<input type="hidden" name="add" value="1" />
+										<input type="hidden" name="business" value=" " />
+										<input type="hidden" name="item_name" value="Pepsi soft drink" />
+										<input type="hidden" name="amount" value="80.00" />
+										<input type="hidden" name="discount_amount" value="1.00" />
+										<input type="hidden" name="currency_code" value="USD" />
+										<input type="hidden" name="return" value=" " />
+										<input type="hidden" name="cancel_return" value=" " />
+										<input type="submit" name="submit" value="Add to cart" class="button" />
+									</fieldset>
+								</form>
+							</div>
+						</div>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"> </div>
+</div>
+
+</div>
 <!-- Modal -->
 <div class="modal fade" id="modalForm" role="dialog">
     <div class="modal-dialog">

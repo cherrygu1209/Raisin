@@ -42,21 +42,21 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="container">
         	<div class="row">
                <div class="col-xs-6 item-photo">
-                   <p><?=Html::img(Url::to('@web/uploads/'.$model->c_image),['class' => 'img-fluid rounded mb-3 mb-md-0'],['alt'=>'Image'],['align'=>'left'],['width'=>'700'],['height'=>'300'])?></p> 
+                   <p><?=Html::img(Url::to('@web/uploads/campaign_img/'.$model->c_image),['class' => 'img-fluid rounded mb-3 mb-md-0'],['alt'=>'Image'],['align'=>'left'],['width'=>'700'],['height'=>'300'])?></p> 
 <!--                   <img style="max-width:100%;" src="https://ak1.ostkcdn.com/images/products/8818677/Samsung-Galaxy-S4-I337-16GB-AT-T-Unlocked-GSM-Android-Cell-Phone-85e3430e-6981-4252-a984-245862302c78_600.jpg" />-->
                 </div>
                 <div class="col-xs-5" style="border:0px solid gray">
                     <!-- Datos del vendedor y titulo del producto -->
-                    <h1><?= $model->c_title?></h1>    
-                    <h3 style="color:#337ab7">By <a href="#"><?= $model->c_author?></a> · <small style="color:#337ab7"> Campaigns Backed (5054 ventas)</small></h3>
+                    <h3><?= $model->c_title?></h3>    
+                    <h5 style="color:#337ab7">By <a href="#"><?= $model->c_author?></a> · <small style="color:#337ab7"> Campaigns Backed (5054 ventas)</small></h5>
         
                     <!-- Precios -->
-                    <h3 class="title-price"><small>FUNDS RAISED</small></h3>
-                    <h2 style="margin-top:0px;">U$S 399</h2>
+                    <h5 class="title-price"><small>FUNDS RAISED</small></h5>
+                    <h4 style="margin-top:0px;">U$S 399</h4>
                     
                     <!-- Precios -->
-                    <h3 class="title-price"><small>BACKERS</small></h3>
-                    <h2 style="margin-top:0px;">199</h2>
+                    <h5 class="title-price"><small>BACKERS</small></h5>
+                    <h4 style="margin-top:0px;">199</h4>
         
                     <!-- Detalles especificos del producto -->
 <!--                    <div class="section">
@@ -67,13 +67,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                     </div>-->
                     <div class="section" style="padding-bottom:5px;">
-                        <h3 class="title-attr"><small>COUNTDOWN TO END</small></h3>                    
+                        <h5 class="title-attr"><small>COUNTDOWN TO END</small></h5>                    
                         <div>
                             <div class="attr2">16 hr</div>
                         </div>
                     </div>   
                     <div class="section" style="padding-bottom:20px;">
-                        <h3 class="title-attr"><small>Campaign ends on</small></h3>                    
+                        <h5 class="title-attr"><small>Campaign ends on</small></h5>                    
                         <div>
                             <div>
                             <div class="attr2"><?= $model->c_end_date?></div>
@@ -86,7 +86,7 @@ $this->params['breadcrumbs'][] = $this->title;
         
                     <!-- Botones de compra -->
                     <div class="section" style="padding-bottom:20px;">
-                        <button class="btn btn-success"><h3><span style="margin-right:20px" class="glyphicon glyphicon-gift" aria-hidden="true"></span>Fund this Campaign</h3></button>
+                        <button class="btn btn-success"><h5><span style="margin-right:20px" class="glyphicon glyphicon-gift" aria-hidden="true"></span>Fund this Campaign</h5></button>
 <!--                        <h6><a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> Agregar a lista de deseos</a></h6>-->
                     </div>                                        
                 </div>                              
