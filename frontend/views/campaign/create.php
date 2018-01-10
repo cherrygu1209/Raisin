@@ -7,9 +7,7 @@ use drsdre\wizardwidget\WizardWidget;
 
 use yii\helpers\Html;
 use frontend\models\Campaign;
-use frontend\models\CampaignRewards;
-use \frontend\models\CampaignStory;
-use frontend\models\CampaignYourself;
+use frontend\models\Reward;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Campaign */
@@ -18,26 +16,11 @@ $this->title = 'Create Campaign';
 $this->params['breadcrumbs'][] = ['label' => 'Campaigns', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
-            $model = new Campaign(); 
+            $model = new Campaign();
+            $reward = new Reward();
 ?>
 <div class="campaign-create">
-
-   
-<!-- Page Header -->
-    <header class="masthead" style="background-image:url('/img/start_campaign.jpg')">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-9 col-md-10 mx-auto">
-            <div class="site-heading">
-              <h1>Start a Campaign</h1>
-              <span class="subheading">Add picture and details of the campaign.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-   
+       
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
@@ -53,8 +36,8 @@ $this->params['breadcrumbs'][] = $this->title;
 	'steps' => [
 		'1' => [
 			'title' => 'Start your campaign',
-			'icon' => 'glyphicon glyphicon-user',
-			'content' => $this->render('_form_1',['model' => $model]),
+			'icon' => 'glyphicon glyphicon-briefcase',
+			'content' => $this->render('_form_1',['model' => $model, 'reward' =>$reward]),
 			'buttons' => [
 				'next' => [
 					'title' => 'Save and continue',
@@ -64,10 +47,10 @@ $this->params['breadcrumbs'][] = $this->title;
 				 ],
 			 ],
 		],
-		'2' => [
-			'title' => 'The Story',
+       		'2' => [
+			'title' => 'Rewards',
 			'icon' => 'glyphicon glyphicon-gift',
-			'content' => $this->render('_form_2',['model' => $model]),
+			'content' => $this->render('_reward',['reward' => $reward]),
                         'buttons' => [
 				'next' => [
 					'title' => 'Save and continue',
@@ -84,10 +67,30 @@ $this->params['breadcrumbs'][] = $this->title;
                                 ]
 			 ],
                 ],
-                '3' => [
+		'3' => [
+			'title' => 'The Story',
+			'icon' => 'glyphicon glyphicon-film',
+			'content' => $this->render('_form_2',['model' => $model, 'reward' =>$reward]),
+                        'buttons' => [
+				'next' => [
+					'title' => 'Save and continue',
+					'options' => [
+						'class' => 'btn btn-info btn-next btn-lg'
+					],
+				 ],
+                                'prev' =>[
+                                    'title' => 'Previous',
+					'options' => [
+						'class' => 'btn btn-info btn-next btn-lg'
+					],
+                                    
+                                ]
+			 ],
+                ],
+                '4' => [
 			'title' => 'The Profile',
-			'icon' => 'glyphicon glyphicon-gift',
-			'content' => $this->render('_form_3',['model' => $model]),
+			'icon' => 'glyphicon glyphicon-user',
+			'content' => $this->render('_form_3',['model' => $model, 'reward' =>$reward]),
                         'buttons' => [
                             'prev' =>[
                                     'title' => 'Previous',
@@ -104,12 +107,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 
 	],
 	
-	//'complete_content' => "You are done!", // Optional final screen
+//        'complete_content' => "You are done!", // Optional final screen
 	'start_step' => 1, // Optional, start with a specific step
 ];
 ?>
 
-<?= \drsdre\wizardwidget\WizardWidget::widget($wizard_config); 
+<?= \drsdre\wizardwidget\WizardWidget::widget($wizard_config);
+//    Html::submitButton('Save', ['class' => 'btn btn-success']);
     ActiveForm::end();
 ?>
           </div>
@@ -118,3 +122,41 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
    
 </div>
+
+<script>
+$(document).ready(function () {
+    //Initialize tooltips
+    $('.nav-tabs > li a[title]').tooltip();
+    
+    //Wizard
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+
+        var $target = $(e.target);
+    
+        if ($target.parent().hasClass('disabled')) {
+            return false;
+        }
+    });
+
+    $(".next-step").click(function (e) {
+
+        var $active = $('.wizard .nav-tabs li.active');
+        $active.next().removeClass('disabled');
+        nextTab($active);
+
+    });
+    $(".prev-step").click(function (e) {
+
+        var $active = $('.wizard .nav-tabs li.active');
+        prevTab($active);
+
+    });
+});
+
+function nextTab(elem) {
+    $(elem).next().find('a[data-toggle="tab"]').click();
+}
+function prevTab(elem) {
+    $(elem).prev().find('a[data-toggle="tab"]').click();
+}
+</script>
