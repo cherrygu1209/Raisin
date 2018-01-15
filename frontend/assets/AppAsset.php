@@ -33,12 +33,12 @@ class AppAsset extends AssetBundle
         'js/clean-blog.min.js',
         'js/contact_me.js',
         'js/jqBootstrapValidation.js',
-        'vendor/jquery/jquery.min.js',
-        'vendor/bootstrap/js/bootstrap.bundle.min.js',
+//        'vendor/jquery/jquery.min.js',
+//        'vendor/bootstrap/js/bootstrap.bundle.min.js',
         'vendor/bootstrap/js/bootstrap.js',
         'js/modal.js',
         'vendor/jquery/jquery.min.js',
-        'vendor/bootstrap/js/bootstrap.bundle.min.js',
+//        'vendor/bootstrap/js/bootstrap.bundle.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -145,4 +145,10 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
+    
+    public function relations() {
+    return array(
+        'campaigns' => array(self::HAS_MANY, 'Campaign', 'c_author'),
+        );
+    }
 }

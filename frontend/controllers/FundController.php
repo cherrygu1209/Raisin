@@ -97,6 +97,19 @@ class FundController extends Controller
 //            ]);
 //        }
     }
+    
+    public function actionCreate1(){
+        
+        $model = new Fund();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->fund_id]);
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
 
     /**
      * Updates an existing Fund model.

@@ -12,6 +12,7 @@ use yii\filters\VerbFilter;
 use yii\web\uploads;
 use yii\web\UploadedFile;
 use yii\data\ActiveDataProvider;
+use frontend\models\Comment;
 
 /**
  * CampaignController implements the CRUD actions for Campaign model.
@@ -55,8 +56,27 @@ class CampaignController extends Controller
      */
     public function actionView($id)
     {
+        $author = Campaign::model()->findByPk($id);
+        
+        $comment = new Comment();
+        $comments = Comment::find()->where(['comment_camp_id'=>$id])->all();
+        
+        if($comment->load(Yii::$app->request->post())){
+            $comment->comment_camp_id = $id;
+            $comment->comment_user_id = Yii::$app->user->identity->getId();
+            
+            if($comment->save(false)){
+            $comments = Comment::find()->where(['comment_camp_id'=>$id])->all();
+            return $this->render('view', [
+            'model' => $this->findModel($id),
+            'comments' => $comments,
+            ]);
+            }
+        }
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'author' => $author,
+            'comments' => $comments,
         ]);
     }
     
@@ -64,6 +84,7 @@ class CampaignController extends Controller
     {
         return $this->render('fund', [
             'model' => $this->findModel($id),
+            'author' => $author,
         ]);
     }
 
@@ -77,7 +98,7 @@ class CampaignController extends Controller
         $model = new Campaign();
         $reward = new Reward();
 
-        if ($model->load(Yii::$app->request->post(''))) {
+        if ($model->load(Yii::$app->request->post())) {
             $model-> c_author = Yii::$app->user->identity->getId();
             
            //$imageName = $model->c_title;
@@ -90,7 +111,7 @@ class CampaignController extends Controller
 //            $model->c_video=$model->videoFile->baseName.'.'.$model->videoFile->extension;
                                   
             if($model->save(false)){              
-                $reward->load(Yii::$app->request->post(''));
+                $reward->load(Yii::$app->request->post());
                 $reward->c_id = $model->c_id;
                 if ($reward->save(false)){
                 return $this->redirect(['view', 'id' => $model->c_id]);

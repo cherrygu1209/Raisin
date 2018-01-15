@@ -1,3 +1,10 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+
 <?php
 
 use yii\helpers\Html;
@@ -19,13 +26,11 @@ $this->registerCssFile('https://fonts.googleapis.com/css?family=Lora:400,700,400
 $this->registerCssFile('https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800');
 $this->registerCssFile('css/clean-blog.min.css');
 $this->registerJsFile('vendor/jquery/jquery.min.js');
-$this->registerJsFile('vendor/jquery/jquery.min.js');
 $this->registerJsFile('vendor/bootstrap/js/bootstrap.bundle.min.js');
 $this->registerJsFile('js/clean-blog.min.js');
 ?>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
 
 <div class="site-index">
     <?php
@@ -78,7 +83,7 @@ $this->registerJsFile('js/clean-blog.min.js');
         <div class="container">
             <div class="row">
             <div class="col-md-9">
-                <h4>4-8% of RASIN for pledging in our platform</h4>
+                <h4>4-8% of RAISIN for pledging in our platform</h4>
             </div>
             </div>
         </div>

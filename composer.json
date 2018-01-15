@@ -27,7 +27,8 @@
         "kartik-v/yii2-widgets": "*",
         "kartik-v/yii2-tabs-x": "@dev",
         "trntv/yii2-datetime-widget": "^1.0",
-        "kartik-v/yii2-dialog": "*"
+        "kartik-v/yii2-dialog": "*",
+        "yii2mod/yii2-comments": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

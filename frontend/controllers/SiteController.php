@@ -77,7 +77,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-          $limit = 2;
+          $limit = 5;
           $model = Campaign::find()->limit($limit)->all();
           $exploreModel = Campaign::find()->where(['c_status'=>'published'])->all();
           $fund = new Fund();

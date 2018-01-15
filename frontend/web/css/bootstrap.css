@@ -2801,7 +2801,7 @@ fieldset[disabled] a.btn {
   color: #868e96;
 }
 
-.btn-lg, .btn-group-lg > .btn {
+/*.btn-lg, .btn-group-lg > .btn {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -2813,7 +2813,7 @@ fieldset[disabled] a.btn {
   font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
-}
+}*/
 
 .btn-block {
   display: block;
@@ -2976,7 +2976,7 @@ tbody.collapse.show {
   white-space: nowrap;
 }
 
-.btn-group,
+/*.btn-group,
 .btn-group-vertical {
   position: relative;
   display: -ms-inline-flexbox;
@@ -3142,7 +3142,7 @@ tbody.collapse.show {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none;
-}
+}*/
 
 .input-group {
   position: relative;
@@ -3223,13 +3223,13 @@ tbody.collapse.show {
 .input-group .form-control:not(:last-child),
 .input-group-addon:not(:last-child),
 .input-group-btn:not(:last-child) > .btn,
-.input-group-btn:not(:last-child) > .btn-group > .btn,
+/*.input-group-btn:not(:last-child) > .btn-group > .btn,
 .input-group-btn:not(:last-child) > .dropdown-toggle,
 .input-group-btn:not(:first-child) > .btn:not(:last-child):not(.dropdown-toggle),
 .input-group-btn:not(:first-child) > .btn-group:not(:last-child) > .btn {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-}
+}*/
 
 .input-group-addon:not(:last-child) {
   border-right: 0;
@@ -3238,13 +3238,13 @@ tbody.collapse.show {
 .input-group .form-control:not(:first-child),
 .input-group-addon:not(:first-child),
 .input-group-btn:not(:first-child) > .btn,
-.input-group-btn:not(:first-child) > .btn-group > .btn,
+/*.input-group-btn:not(:first-child) > .btn-group > .btn,
 .input-group-btn:not(:first-child) > .dropdown-toggle,
 .input-group-btn:not(:last-child) > .btn:not(:first-child),
 .input-group-btn:not(:last-child) > .btn-group:not(:first-child) > .btn {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-}
+}*/
 
 .form-control + .input-group-addon:not(:first-child) {
   border-left: 0;
@@ -3275,7 +3275,7 @@ tbody.collapse.show {
 }
 
 .input-group-btn:not(:last-child) > .btn,
-.input-group-btn:not(:last-child) > .btn-group {
+/*.input-group-btn:not(:last-child) > .btn-group {
   margin-right: -1px;
 }
 
@@ -3295,7 +3295,7 @@ tbody.collapse.show {
 .input-group-btn:not(:first-child) > .btn-group:active,
 .input-group-btn:not(:first-child) > .btn-group:hover {
   z-index: 3;
-}
+}*/
 
 .custom-control {
   position: relative;
